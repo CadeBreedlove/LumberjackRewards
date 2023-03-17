@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -41,13 +42,13 @@ public class BadgesActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
         //testing badge recycle view layout
-        for (int i = 0; i < 40; i++){
+        for (int i = 1; i <= 40; i++){
             //Add values in array List
-            arrBadges.add(new BadgeItemModel(i, "test", "Example" + i, "badge_ex1"));
+            arrBadges.add(new BadgeItemModel(i, "Test description for badge requirements.", "Badge Example " + i, "badge_ex2"));
         }
 
         //layout manager for badge test
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
 
         //set layout manager
         rvBadge.setLayoutManager(layoutManager);
