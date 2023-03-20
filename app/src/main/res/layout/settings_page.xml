@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text = "Settings"
         android:layout_centerInParent = "true"
-        android:textColor = "#FFFFFF"
+        android:textColor = "@color/text"
         android:textStyle= "bold"
         android:textSize = "18sp"
         />
@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="John Workman"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="(123)-456-7890"
-                android:textColor="#CCFFFFFF"
+                android:textColor="@color/text"
                 android:textSize="12sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -74,7 +74,7 @@
                 android:paddingEnd="30dp"
                 android:text="Edit Profile"
                 android:textAllCaps="false"
-                android:textColor="@color/primary" />
+                android:textColor="@color/text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,12 +93,12 @@
                     <!--night mode-->
                     <ImageView
                         android:contentDescription="Night Mode"
-                        android:id="@+id/nightModeIcon"
+                        android:id = "@+id/nightModeIcon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/round_back_night_mode"
                         android:padding="12dp"
-                        android:src="@drawable/night_mode_icon" />
+                         />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -107,10 +107,11 @@
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/nightModeIcon"
                         android:text="Night Mode"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:id = "@+id/mode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -247,7 +248,7 @@
                         android:id="@+id/message_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/round_back_private_account"
+                        android:background="@drawable/round_back_about_us"
                         android:padding="12dp"
                         android:src="@drawable/message_icon" />
 

@@ -19,6 +19,7 @@
         <item name = "colorSwitchThumbNormal">#FFFFFF</item>
         <item name = "android:colorForeground">#99FFFFFF</item>
     </style>
+
     <!--Theme style for Notifications Switch-->
     <style name= "notificationsSwitch" parent = "Theme.AppCompat.Light">
         <item name = "colorControlActivated">@color/notifications</item>
@@ -27,7 +28,7 @@
     </style>
     <!--Theme style for Private Account Switch-->
     <style name= "privateAccountSwitch" parent = "Theme.AppCompat.Light">
-        <item name = "colorControlActivated">@color/private_account</item>
+        <item name = "colorControlActivated">@color/about_us</item>
         <item name = "colorSwitchThumbNormal">#FFFFFF</item>
         <item name = "android:colorForeground">#99FFFFFF</item>
     </style>
