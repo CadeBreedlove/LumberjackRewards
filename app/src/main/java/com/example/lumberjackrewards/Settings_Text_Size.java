@@ -46,7 +46,7 @@ public class Settings_Text_Size extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Text_Size.this, MainActivity.class));
+                startActivity(new Intent(Settings_Text_Size.this, Settings.class));
             }
         });
     }
