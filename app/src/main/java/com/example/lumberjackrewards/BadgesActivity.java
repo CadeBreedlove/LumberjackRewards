@@ -192,14 +192,13 @@ public class BadgesActivity extends AppCompatActivity {
     private void deleteBadge(String badgeName){
         db.collection("badges").whereEqualTo("name", badgeName)
                 .get()
-                .continueWith()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                db.collection("badges").document(document.toString())
+                                db.collection("badges").document(document.getId())
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
