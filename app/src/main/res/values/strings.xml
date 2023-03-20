@@ -30,4 +30,7 @@
     <string name="create_badge">Create Badge</string>
     <string name="badge_completion_requirements">Badge Completion Requirements</string>
     <string name="c_badge">Create Badge</string>
+    <string name="randomPrivacyText">In an increasingly digital world, businesses and organizations face constantly evolving threats. Fraud, data breaches, digital privacy, and more demand not only vigilance but specific expertise to counteract. In our online Master of Legal Studies in Compliance and Risk Management program, you’ll become immersed in this rapidly evolving regulatory space and learn to make vital decisions that protect your organization and its data.</string>
+    <string name="privacy_amp_security"><![CDATA[Privacy & Security]]></string>
+    <string name="privacy_and_information_technology">Privacy and Information Technology</string>
 </resources>
