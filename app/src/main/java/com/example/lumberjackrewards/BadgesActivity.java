@@ -65,7 +65,7 @@ public class BadgesActivity extends AppCompatActivity {
 
 
                         //layout manager for badge test
-                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
+                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
 
                         //set layout manager
                         rvBadge.setLayoutManager(layoutManager);
