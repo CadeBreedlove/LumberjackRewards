@@ -139,6 +139,7 @@
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
+                        android:id = "@+id/mode"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
@@ -285,7 +286,7 @@
                         android:id="@+id/message_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/round_back_private_account"
+                        android:background="@drawable/round_back_about_us"
                         android:padding="12dp"
                         android:contentDescription="@string/contact_us"
                         android:src="@drawable/message_icon" />
