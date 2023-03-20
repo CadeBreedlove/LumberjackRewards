@@ -9,4 +9,7 @@
     <string name="new_screen">New Screen</string>
     <string name="remove">Remove</string>
     <string name="add">Add</string>
+    <string name="welcome">Welcome,</string>
+    <string name="LumberjackRewards">LUMBERJACK REWARDS</string>
+    <string name="NewsAndUpdates">News &amp; Updates</string>
 </resources>

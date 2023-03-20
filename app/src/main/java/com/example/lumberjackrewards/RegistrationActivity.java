@@ -4,44 +4,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistrationActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 
-    private EditText txtEmail;
-
-    private EditText txtPassword;
-
-    private Button btnRegister;
-
-    private TextView tvwLogin;
-
-    private FirebaseFirestore database;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    private EditText RegEmail, RegPwd;
+    private Button RegBtn;
+    private TextView RegQn;
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_registration);
 
-        database = FirebaseFirestore.getInstance();
+        RegEmail = findViewById(R.id.RegistrationEmail);
+        RegPwd = findViewById(R.id.RegistrationPassword);
+        RegBtn = findViewById(R.id.RegistrationButton);
+        RegQn = findViewById(R.id.RegistrationPageQuestion);
 
-        txtEmail = findViewById(R.id.RegistrationEmail);
-        txtPassword = findViewById(R.id.RegistrationPassword);
-        btnRegister = findViewById(R.id.RegistrationButton);
-        tvwLogin = findViewById(R.id.RegistrationPageQuestion);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-        tvwLogin.setOnClickListener(new View.OnClickListener() {
+        // Redirect user to login page if
+        // account has already been created
+        RegQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
@@ -49,25 +45,44 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        // Register user in the system
+        RegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = txtEmail.getText().toString().trim();
-                String password = txtPassword.getText().toString().trim();
+                // removes whitespace from both ends of the strings
+                String email = RegEmail.getText().toString().trim();
+                String password = RegPwd.getText().toString().trim();
 
+                // ensure fields are filled out
                 if (TextUtils.isEmpty(email)){
-                    txtEmail.setError("A valid email is required");
+                    RegEmail.setError("A valid email is required");
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    txtPassword.setError("A valid password is required");
+                    RegPwd.setError("A valid password is required");
                     return;
                 } else{
-                    UserModel user = new UserModel(null, null, email, "user",password);
-                    user.addNewUser(database);
+                    /*loader.setMessage("Registration in progress");
+                    loader.setCanceledOnTouchOutside(false);
+                    loader.show();*/
+                    mAuth.createUserWithEmailAndPassword(email,password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if(task.isSuccessful()){
+                                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else{
+                                String error = task.getException().toString();
+                                Toast.makeText(RegistrationActivity.this, "Registration failed: " + error, Toast.LENGTH_SHORT).show();
+                            }
+                            //loader.dismiss();
+                        }
+                    });
                 }
             }
         });
     }
 }
-
