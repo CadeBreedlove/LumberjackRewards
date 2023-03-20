@@ -25,6 +25,8 @@
         <activity android:name=".BadgesActivity"/>
         <activity android:name=".Settings"/>
         <activity android:name=".Settings_Text_Size" />
+        <activity android:name=".Settings_Security_Privacy" />
+        <activity android:name=".ActivityAddBadge" />
     </application>
 
 </manifest>

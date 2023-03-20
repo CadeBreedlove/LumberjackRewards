@@ -25,4 +25,9 @@
     <string name="faq">FAQs</string>
     <string name="log_out">Log Out</string>
     <string name="adjust_your_text_size">Adjust your text size!</string>
+    <string name="security_amp_privacy"><![CDATA[Security & Privacy]]></string>
+    <string name="security_privacy_button">Security Privacy Button</string>
+    <string name="create_badge">Create Badge</string>
+    <string name="badge_completion_requirements">Badge Completion Requirements</string>
+    <string name="c_badge">Create Badge</string>
 </resources>

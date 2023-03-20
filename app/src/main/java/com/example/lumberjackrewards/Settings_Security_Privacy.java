@@ -1,18 +1,18 @@
 package com.example.lumberjackrewards;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Settings_Text_Size extends AppCompatActivity {
+
+public class Settings_Security_Privacy extends AppCompatActivity {
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_text_size);
+        setContentView(R.layout.settings_security_privacy);
 
 
         Button btn = (Button)findViewById(R.id.backButton);
@@ -43,7 +43,7 @@ public class Settings_Text_Size extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Text_Size.this, Settings.class));
+                startActivity(new Intent(Settings_Security_Privacy.this, Settings.class));
             }
         });
     }

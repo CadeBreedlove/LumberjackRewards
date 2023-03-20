@@ -19,6 +19,7 @@ public class Settings extends Activity {
 
         Button btn = (Button)findViewById(R.id.backButton);
         ImageButton btnTextSize = (ImageButton) findViewById(R.id.searchImageButton);
+        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -54,6 +55,13 @@ public class Settings extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Settings_Text_Size.class));
+            }
+        });
+
+        btnSecurity_Privacy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Settings_Security_Privacy.class));
             }
         });
     }
