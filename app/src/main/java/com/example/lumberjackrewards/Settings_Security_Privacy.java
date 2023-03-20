@@ -1,27 +1,29 @@
 package com.example.lumberjackrewards;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
 
+public class Settings_Security_Privacy extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.settings_security_privacy);
 
-        // Initialize and assign variable
+
+        Button btn = (Button)findViewById(R.id.backButton);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
 
-        // Set Home selected
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        // Set settings selected
+        bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
-        // Perform item selected listener
+        // Perform item selected listener for settings page
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId())
             {
@@ -30,13 +32,19 @@ public class MainActivity extends AppCompatActivity {
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(),Settings.class));
-                    //overridePendingTransition(0,0);
-                    break;
             }
             return true;
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Settings_Security_Privacy.this, Settings.class));
+            }
         });
     }
 }

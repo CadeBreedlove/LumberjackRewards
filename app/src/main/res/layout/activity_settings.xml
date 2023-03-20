@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings">
-    <!-- Top Navigation Bar -->
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_500"
+        android:orientation="vertical"
+        tools:context=".Settings"
         >
+        <!-- Top Navigation Bar -->
         <RelativeLayout
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
             >
 
             <Button
@@ -22,42 +23,24 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:text="@string/back"
                 android:visibility="visible"
-                android:text="BACK"
-                android:textColor = "@color/white"
-                android:layout_marginStart="-10dp"
-                 />
-                <!-- app:icon="@drawable/back_btn" -->
+                app:icon="@drawable/back_btn" />
 
+            <!-- android:src = "drawable/back_btn" -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text = "@string/settings"
                 android:layout_centerInParent = "true"
-                android:textColor = "@color/white"
+                android:textColor = "#FFFFFF"
                 android:textStyle= "bold"
                 android:textSize = "18sp"
-                android:visibility="visible"
                 />
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/purple_700"
-            android:orientation="vertical"
-            tools:context=".Settings">
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <ScrollView android:layout_marginTop="48dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:background="@color/purple_500"
-        android:paddingBottom="70dp">
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,7 +85,7 @@
                 android:paddingEnd="30dp"
                 android:text="@string/edit_profile"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/primary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,11 +100,11 @@
                 <!--Dark Mode / Night Mode-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content">
                     <!--night mode-->
                     <ImageView
                         android:contentDescription="@string/night_mode"
+                        android:id="@+id/nightModeIcon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/round_back_night_mode"
@@ -132,7 +115,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@+id/nightModeIcon"
                         android:text="@string/night_mode"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
@@ -150,7 +134,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_marginTop="10dp">
 
                     <ImageView
                         android:id="@+id/notificationIcon"
@@ -162,6 +146,7 @@
                         android:src="@drawable/notifications_icon" />
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -187,14 +172,13 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
+                android:background="@drawable/round_back_white10_20"
                 android:orientation="vertical"
-                android:padding="15dp"
-                android:background="@drawable/round_back_white10_20">
+                android:padding="15dp">
                 <!-- Security-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/security_icon"
@@ -216,22 +200,19 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <ImageButton
-                        android:id="@+id/securityPrivacyButton"
+                    <ImageView
                         android:layout_width="wrap_content"
+                        android:contentDescription="@string/sp_description"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:background="@null"
                         android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
 
                 <!-- Text Size-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/text_size_icon"
@@ -252,14 +233,12 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <ImageButton
-                        android:id="@+id/searchImageButton"
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/text_size"
                         android:layout_centerVertical="true"
-                        android:background="@null"
                         android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
 
@@ -278,8 +257,7 @@
                 <!--Send Us A Messages-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/message_icon"
@@ -346,8 +324,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    >
+                    android:layout_alignLeft="@id/backButton">
 
                     <ImageView
                         android:id="@+id/faq_icon"
@@ -379,7 +356,6 @@
 
             </LinearLayout>
 
-            <!-- Log Out -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -389,13 +365,11 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_back_white10_20"
                 android:orientation="vertical"
-                android:padding="15dp"
-                android:paddingBottom="5dp">
+                android:padding="15dp">
                 <!-- Log Out-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/log_out_icon"
@@ -422,12 +396,12 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/right_arrow_icon"
-                        android:contentDescription="@string/settings"
-                        android:paddingBottom="5dp"/>
+                        android:contentDescription="@string/settings"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

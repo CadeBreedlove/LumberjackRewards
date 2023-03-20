@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BadgesActivity"
+    android:background="#2A0068">
+
+    <!--on below line we are creating edit text
+         for adding a new item to list-->
+
+    <!--button for adding item from edit text to list-->
+    <EditText
+        android:id="@+id/idEdtItemName"
+        android:layout_width="231dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:autofillHints=""
+        android:hint="Enter item onto list here"
+        android:inputType=""
+        android:minHeight="48dp"
+        tools:ignore="HardcodedText,TextFields,VisualLintTextFieldSize" />
+
+    <Button
+        android:id="@+id/idBtnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/add"
+        android:textAllCaps="false"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:id="@+id/idBtnRmv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/remove"
+        android:textAllCaps="false"
+        tools:ignore="RelativeOverlap" />
+
+    <!--list view to display list of languages-->
+    <!--
+    <ListView
+        android:id="@+id/idLVLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_below="@id/idEdtItemName" />
+    -->
+
+    <!-- Playing around with images-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBadges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        tools:listitem="@layout/item_badge"
+       />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>

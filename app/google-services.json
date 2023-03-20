@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212283986160",
+    "project_id": "lumberjackrewards-5d271",
+    "storage_bucket": "lumberjackrewards-5d271.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212283986160:android:b8a9d6933fb1bfa6733235",
+        "android_client_info": {
+          "package_name": "com.example.lumberjackrewards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212283986160-j95qfth5mtmlt4qkq3b55t8rsrcijhej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUU_AZw9A4Bu6s-creDckPEFopvAjd1zE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212283986160-j95qfth5mtmlt4qkq3b55t8rsrcijhej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

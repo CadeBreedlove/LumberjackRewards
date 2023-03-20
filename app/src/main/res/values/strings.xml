@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">LumberjackRewards</string>
+    <string name="title_activity_bottom_nav_bar">bottom_nav_bar</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_badges">Badges</string>
+    <string name="title_settings">Settings</string>
+    <string name="new_screen">New Screen</string>
+    <string name="remove">Remove</string>
+    <string name="add">Add</string>
+    <string name="back">BACK</string>
+    <string name="settings">Settings</string>
+    <string name="profile_icon">Profile Icon</string>
+    <string name="settings_nameplate">John Workman</string>
+    <string name="settings_phone_number">(123) &#8211; 456 &#8211; 8910</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="notification_icon">Notification Icon</string>
+    <string name="security_icon">Security Icon</string>
+    <string name="security_privacy">Security &amp; Privacy</string>
+    <string name="sp_description">SP More Info</string>
+    <string name="text_size">Text Size</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="faq">FAQs</string>
+    <string name="log_out">Log Out</string>
+    <string name="adjust_your_text_size">Adjust your text size!</string>
+    <string name="security_amp_privacy"><![CDATA[Security & Privacy]]></string>
+    <string name="security_privacy_button">Security Privacy Button</string>
+    <string name="create_badge">Create Badge</string>
+    <string name="badge_completion_requirements">Badge Completion Requirements</string>
+    <string name="c_badge">Create Badge</string>
+    <string name="randomPrivacyText">In an increasingly digital world, businesses and organizations face constantly evolving threats. Fraud, data breaches, digital privacy, and more demand not only vigilance but specific expertise to counteract. In our online Master of Legal Studies in Compliance and Risk Management program, you’ll become immersed in this rapidly evolving regulatory space and learn to make vital decisions that protect your organization and its data.</string>
+    <string name="privacy_amp_security"><![CDATA[Privacy & Security]]></string>
+    <string name="privacy_and_information_technology">Privacy and Information Technology</string>
 </resources>
