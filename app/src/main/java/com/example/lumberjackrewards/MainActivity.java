@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Dynamically update welcome msg for current, logged-in user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             updateTextView(user.getDisplayName());
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
 
         // Set Home selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);

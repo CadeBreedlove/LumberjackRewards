@@ -19,9 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText loginEmail, loginPwd;
-    private Button loginBtn;
-    private TextView loginQn;
+    private EditText LoginEmail, LoginPwd;
+    private Button LoginBtn;
+    private TextView LoginQn;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -44,14 +44,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        loginEmail = findViewById(R.id.loginEmail);
-        loginPwd = findViewById(R.id.loginPassword);
-        loginBtn = findViewById(R.id.loginButton);
-        loginQn = findViewById(R.id.loginPageQuestion);
+        LoginEmail = findViewById(R.id.loginEmail);
+        LoginPwd = findViewById(R.id.loginPassword);
+        LoginBtn = findViewById(R.id.loginButton);
+        LoginQn = findViewById(R.id.loginPageQuestion);
 
         // Redirect user to registration page if
         // account has not already been created
-        loginQn.setOnClickListener(new View.OnClickListener() {
+        LoginQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
@@ -60,18 +60,18 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Authenticate user and login to home page
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = loginEmail.getText().toString().trim();
-                String password = loginPwd.getText().toString().trim();
+                String email = LoginEmail.getText().toString().trim();
+                String password = LoginPwd.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-                    loginEmail.setError("A valid email is required");
+                    LoginEmail.setError("A valid email is required");
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    loginPwd.setError("A valid password is required");
+                    LoginPwd.setError("A valid password is required");
                     return;
                 } else{
 

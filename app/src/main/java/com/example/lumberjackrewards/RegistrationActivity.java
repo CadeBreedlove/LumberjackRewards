@@ -105,6 +105,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
+    // Add Display Name to newly-registered user
     private void updateUserProfile(String fName, String lName){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
