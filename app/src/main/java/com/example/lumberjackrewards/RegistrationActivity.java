@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -24,6 +26,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText RegEmail, RegPwd;
     private Button RegBtn;
     private TextView RegQn;
+    private TextView RegFName;
+    private TextView RegLName;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
@@ -32,6 +36,8 @@ public class RegistrationActivity extends AppCompatActivity {
         RegPwd = findViewById(R.id.RegistrationPassword);
         RegBtn = findViewById(R.id.RegistrationButton);
         RegQn = findViewById(R.id.RegistrationPageQuestion);
+        RegFName = findViewById(R.id.registrationFirstName);
+        RegLName = findViewById(R.id.registrationLastName);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -53,6 +59,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 // removes whitespace from both ends of the strings
                 String email = RegEmail.getText().toString().trim();
                 String password = RegPwd.getText().toString().trim();
+                String fName = RegFName.getText().toString().trim();
+                String lName = RegLName.getText().toString().trim();
 
                 // ensure fields are filled out
                 if (TextUtils.isEmpty(email)){
@@ -61,6 +69,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(password)){
                     RegPwd.setError("A valid password is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(fName)){
+                    RegPwd.setError("A valid first name is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(lName)){
+                    RegPwd.setError("A valid last name is required");
                     return;
                 } else{
                     /*loader.setMessage("Registration in progress");
@@ -72,6 +88,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
+                                updateUserProfile(fName, lName);
                                 Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -88,5 +105,22 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
+    private void updateUserProfile(String fName, String lName){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(fName + " " + lName)
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("USER INFO UPDATED", "User profile updated.");
+                        }
+                    }
+                });
+    }
 }
 
