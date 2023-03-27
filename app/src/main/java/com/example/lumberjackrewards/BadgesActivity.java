@@ -21,11 +21,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BadgesActivity extends AppCompatActivity {
     // Badges backend
@@ -46,7 +50,7 @@ public class BadgesActivity extends AppCompatActivity {
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //testing badge recycle view layout
         /*for (int i = 0; i < 40; i++){
@@ -84,16 +88,15 @@ public class BadgesActivity extends AppCompatActivity {
 
         // Perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            switch(item.getItemId())
-            {
+            switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     //overridePendingTransition(0,0);
                     return true;
                 case R.id.navigation_badges:
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
                     //overridePendingTransition(0,0);
                     break;
             }
@@ -161,6 +164,7 @@ public class BadgesActivity extends AppCompatActivity {
             }
         });*/
     }
+
     private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
         arrBadges.clear();
         db.collection("badges")
@@ -189,7 +193,7 @@ public class BadgesActivity extends AppCompatActivity {
                 });
     }
 
-    private void deleteBadge(String badgeName){
+    private void deleteBadge(String badgeName) {
         db.collection("badges").whereEqualTo("name", badgeName)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -222,4 +226,28 @@ public class BadgesActivity extends AppCompatActivity {
 
     }
 
+    public void AssignBadge(String userID, String badgeId) {
+        // Get the collection reference
+        CollectionReference badgesRef = db.collection("badges");
+
+        // Create a query to search for the document with the unique field value
+        Query query = badgesRef.whereEqualTo("badgeID", badgeId);
+
+        // Execute the query asynchronously
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String documentId = document.getId();
+                    String badgeName = document.getString("name");
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("name", badgeName);
+                    docData.put("badgeID", badgeId);
+
+                    db.collection("users").document(userID).collection("badges").document(documentId)
+                            .set(docData);
+                }
+            }
+        });
+
+    }
 }
