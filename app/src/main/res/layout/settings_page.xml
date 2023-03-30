@@ -14,20 +14,20 @@
         <RelativeLayout
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
+            android:background="#401C73"
             >
 
-            <Button
-                android:id="@+id/backButton"
+            <ImageButton
                 style="@style/Widget.AppCompat.Button.Borderless"
+                android:src="@drawable/back_btn"
+                android:id="@+id/backButton"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                android:text="BACK"
                 android:textColor = "@color/white"
                 android:layout_marginStart="-10dp"
-                 />
-                <!-- app:icon="@drawable/back_btn" -->
+                />
+            <!-- app:icon="@drawable/back_btn" -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/purple_700"
+            android:background="@color/purple_500"
             android:orientation="vertical"
             tools:context=".Settings">
         </LinearLayout>
@@ -55,7 +55,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:background="@color/purple_500"
+        android:background="@color/purple_339"
         android:paddingBottom="70dp">
 
 
@@ -75,24 +75,27 @@
                 />
 
             <TextView
+                android:id="@+id/settings_nameplate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="@string/settings_nameplate"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/settingsEmailDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/settings_phone_number"
                 android:textColor="#CCFFFFFF"
-                android:textSize="12sp" />
+                android:paddingTop="6dp"
+                android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEditProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -253,7 +256,7 @@
                         android:textStyle="bold" />
 
                     <ImageButton
-                        android:id="@+id/searchImageButton"
+                        android:id="@+id/textSizeButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -417,14 +420,13 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/logoutButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:src="@drawable/right_arrow_icon"
                         android:contentDescription="@string/settings"
-                        android:paddingBottom="5dp"
-                        android:src="@drawable/right_arrow_icon" />
+                        android:paddingBottom="5dp"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

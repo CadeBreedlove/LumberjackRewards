@@ -36,4 +36,9 @@
     <string name="welcome">Welcome,</string>
     <string name="LumberjackRewards">LUMBERJACK REWARDS</string>
     <string name="NewsAndUpdates">News &amp; Updates</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="email">Email Address</string>
+    <string name="Application_Role">Application Role</string>
 </resources>

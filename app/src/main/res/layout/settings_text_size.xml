@@ -22,13 +22,13 @@
                 android:background="@color/purple_700"
                 >
 
-                <Button
-                    android:id="@+id/backButton"
+                <ImageButton
                     style="@style/Widget.AppCompat.Button.Borderless"
+                    android:src="@drawable/back_btn"
+                    android:id="@+id/backButton"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    android:text="BACK"
                     android:textColor = "@color/white"
                     android:layout_marginStart="-10dp"
                     />

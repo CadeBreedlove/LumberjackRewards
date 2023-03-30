@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings_Security_Privacy" >
+    tools:context=".EditProfile" >
     <!-- Top Navbar -->
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            >
             <RelativeLayout
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
@@ -33,12 +33,13 @@
                     android:textColor = "@color/white"
                     android:layout_marginStart="-10dp"
                     />
+
                 <!-- app:icon="@drawable/back_btn" -->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "@string/privacy_amp_security"
+                    android:text="@string/edit_profile"
                     android:layout_centerInParent = "true"
                     android:textColor = "@color/white"
                     android:textStyle= "bold"
@@ -48,18 +49,72 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="9dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:textSize="18sp"
-            android:layout_marginTop="70dp"
-            android:layout_height="wrap_content"
-            android:text=""/>
-    </LinearLayout>
+        android:layout_marginTop="48dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text = "@string/first_name"
+            android:textColor = "@color/black"
+            android:textStyle= "bold"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            />
+
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:text = "@string/last_name"
+            android:layout_height="wrap_content"
+            android:textColor = "@color/black"
+            android:textStyle= "bold"
+            android:textSize = "18sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:text = "@string/email"
+            android:layout_height="wrap_content"
+            android:textColor = "@color/black"
+            android:textStyle= "bold"
+            android:textSize = "18sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/role"
+            android:layout_width="match_parent"
+            android:text = "@string/Application_Role"
+            android:layout_height="wrap_content"
+            android:textColor = "@color/black"
+            android:textStyle= "bold"
+            android:textSize = "18sp"
+            android:visibility="visible" />
+
+
+
+        <Button
+            android:id="@+id/btnSaveProfileChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#401C73"
+            android:elevation="4dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:text="@string/save_changes"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
