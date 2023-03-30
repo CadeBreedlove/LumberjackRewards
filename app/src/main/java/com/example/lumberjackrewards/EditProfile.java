@@ -1,6 +1,5 @@
 package com.example.lumberjackrewards;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,25 +15,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-
-import org.w3c.dom.Text;
-
-import java.util.Objects;
-import java.util.Set;
 
 public class EditProfile extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_edit_profile);
+        setContentView(R.layout.user_edit_profile);
 
-        Button btnSaveChanges = findViewById(R.id.btnSaveProfileChanges);
-        ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
+        Button btnSaveChanges = findViewById(R.id.saveButton);
+        ImageButton backBtn = findViewById(R.id.backButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -60,6 +50,7 @@ public class EditProfile extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     break;
                 case R.id.navigation_settings:
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
                     break;
             }
             return true;

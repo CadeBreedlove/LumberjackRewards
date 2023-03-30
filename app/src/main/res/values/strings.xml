@@ -41,4 +41,6 @@
     <string name="save_changes">Save Changes</string>
     <string name="email">Email Address</string>
     <string name="Application_Role">Application Role</string>
+    <string name="message_contents">Message Contents</string>
+    <string name="submit">Submit</string>
 </resources>

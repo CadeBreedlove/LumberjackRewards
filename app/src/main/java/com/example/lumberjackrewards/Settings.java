@@ -30,6 +30,7 @@ public class Settings extends AppCompatActivity {
         Button btnEditProfile = (Button)findViewById(R.id.btnEditProfile);
         ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
         ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
+        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -94,6 +95,13 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Settings_Security_Privacy.class));
+            }
+        });
+
+        btnContactUs.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ContactUs.class));
             }
         });
     }

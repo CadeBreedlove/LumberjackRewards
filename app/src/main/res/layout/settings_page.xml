@@ -278,7 +278,7 @@
                 android:orientation="vertical"
                 android:padding="15dp">
 
-                <!--Send Us A Messages-->
+                <!--Contact Us-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -303,13 +303,15 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/contactUsButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/right_arrow_icon"
-                        android:contentDescription="@string/settings"/>
+                        android:background="@null"
+                        android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
 
                 <!-- About Us-->

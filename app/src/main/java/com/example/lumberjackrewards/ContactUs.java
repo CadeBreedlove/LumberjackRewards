@@ -1,22 +1,23 @@
 package com.example.lumberjackrewards;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Settings_Text_Size extends AppCompatActivity {
+public class ContactUs extends AppCompatActivity {
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_text_size);
+        setContentView(R.layout.contact_us);
 
 
-        ImageButton btn = (ImageButton)findViewById(R.id.backButton);
+        Button btn = (Button)findViewById(R.id.backButton);
+        Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -37,6 +38,7 @@ public class Settings_Text_Size extends AppCompatActivity {
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(),Settings.class));
+                    break;
             }
             return true;
         });
@@ -44,8 +46,16 @@ public class Settings_Text_Size extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Text_Size.this, Settings.class));
+                startActivity(new Intent(ContactUs.this, Settings.class));
+            }
+        });
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do something
             }
         });
     }
 }
+

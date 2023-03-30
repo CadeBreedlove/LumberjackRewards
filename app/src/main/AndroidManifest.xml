@@ -21,6 +21,7 @@
         <activity android:name=".Settings_Security_Privacy" />
         <activity android:name=".ActivityAddBadge" />
         <activity android:name=".EditProfile" />
+        <activity android:name=".ContactUs" />
 
         <activity android:name=".BadgesActivity"/>
         <activity

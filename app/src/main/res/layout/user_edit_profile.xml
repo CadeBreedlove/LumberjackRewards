@@ -20,7 +20,7 @@
             <RelativeLayout
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
-                android:background="#401C73"
+                android:background="@color/purple_401"
                 tools:ignore="UselessParent">
 
                 <ImageButton
@@ -99,20 +99,18 @@
             android:textSize = "18sp"
             android:visibility="visible" />
 
-
-
-        <Button
-            android:id="@+id/btnSaveProfileChanges"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="#401C73"
-            android:elevation="4dp"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveButton"
+            android:layout_width="450dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_back_secondary_200"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:text="@string/save_changes"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            />
+            android:layout_height="40dp" />
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -120,5 +118,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"
+        />
 </RelativeLayout>
