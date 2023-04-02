@@ -18,3 +18,12 @@ build/
 gradle-app.setting
 !gradle-wrapper.jar
 gradle.properties
+*.iml
+.idea/
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle/
+build/
+
+app/build/
+
+gradle/
