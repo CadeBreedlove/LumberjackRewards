@@ -15,7 +15,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
         setContentView(R.layout.settings_security_privacy);
 
 
-        Button btn = (Button)findViewById(R.id.backButton);
+        Button btn = (Button)findViewById(R.id.btnBackButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

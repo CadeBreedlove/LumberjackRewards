@@ -91,7 +91,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                 updateUserProfile(fName, lName);
                                 Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                                 startActivity(intent);
-                                finish();
                             } else{
                                 String error = task.getException().toString();
                                 Toast.makeText(RegistrationActivity.this, "Registration failed: " + error, Toast.LENGTH_SHORT).show();

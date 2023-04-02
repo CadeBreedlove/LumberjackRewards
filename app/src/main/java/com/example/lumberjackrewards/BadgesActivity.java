@@ -108,33 +108,9 @@ public class BadgesActivity extends AppCompatActivity {
 
         // on below line we are adding click listener for our button.
         addBtn.setOnClickListener(v -> {
-            // on below line we are getting text from edit text
-            String item = itemEdt.getText().toString();
-
-            // on below line we are checking if item is not empty
-            if (!item.isEmpty()) {
-
-                // splitting String item to
-                // populate BadgeItemModel
-                String[] badgeItemAttributes = item.split(", ");
-
-                // populating BadgeItemModel
-                // int badgeID, String description, String name, String icon
-                BadgeItemModel newBadge = new BadgeItemModel(Integer.parseInt(badgeItemAttributes[0]), badgeItemAttributes[1], badgeItemAttributes[2], badgeItemAttributes[3]);
-
-                // adding badge to database
-                newBadge.addNewBadgeItem(db);
-
-                displayAllBadges(arrBadges);
-                // on below line we are adding item to our list.
-                //lngList.add(newBadge);
-
-                // on below line we are notifying adapter
-                // that data in list is updated to
-                // update our list view.
-                //adapter.notifyDataSetChanged();
-            }
-
+            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
+            startActivity(intent);
+            finish();
         });
 
         removeBtn.setOnClickListener(v -> {
@@ -219,7 +195,5 @@ public class BadgesActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
-
 }

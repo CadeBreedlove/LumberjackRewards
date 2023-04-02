@@ -1,6 +1,5 @@
 package com.example.lumberjackrewards;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +19,7 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.settings_page);
 
         ImageView logoutBtn = (ImageView)findViewById(R.id.logoutButton);
-        Button backBtn = (Button)findViewById(R.id.backButton);
+        Button backBtn = (Button)findViewById(R.id.btnBackButton);
         ImageButton btnTextSize = (ImageButton) findViewById(R.id.searchImageButton);
         ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
 

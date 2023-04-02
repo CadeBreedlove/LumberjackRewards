@@ -24,7 +24,7 @@
                 tools:ignore="UselessParent">
 
                 <Button
-                    android:id="@+id/backButton"
+                    android:id="@+id/btnBackButton"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"

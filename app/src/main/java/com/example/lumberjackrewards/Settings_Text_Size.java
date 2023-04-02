@@ -15,7 +15,7 @@ public class Settings_Text_Size extends AppCompatActivity {
         setContentView(R.layout.settings_text_size);
 
 
-        Button btn = (Button)findViewById(R.id.backButton);
+        Button btn = (Button)findViewById(R.id.btnBackButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
