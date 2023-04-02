@@ -1,5 +1,7 @@
 package com.example.lumberjackrewards;
 
+import static com.example.lumberjackrewards.R.*;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
@@ -23,19 +25,20 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_page);
+        setContentView(layout.settings_page);
 
-        //ImageView logoutBtn = (ImageView)findViewById(R.id.logoutButton);
-        ImageButton backBtn = (ImageButton)findViewById(R.id.backButton);
-        Button btnEditProfile = (Button)findViewById(R.id.btnEditProfile);
-        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
-        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
-        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
+        ImageView logoutBtn = (ImageView)findViewById(R.id.logoutButton);
+        ImageButton backBtn = (ImageButton)findViewById(id.backButton);
+        Button btnEditProfile = (Button)findViewById(id.btnEditProfile);
+        ImageButton btnTextSize = (ImageButton) findViewById(id.textSizeButton);
+        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(id.securityPrivacyButton);
+        ImageButton btnContactUs = (ImageButton) findViewById(id.contactUsButton);
+        ImageButton btnFAQ = (ImageButton) findViewById(id.faqButton);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(id.bottom_navigation);
 
         // Set settings selected
-        bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
+        bottomNavigationView.setSelectedItemId(id.navigation_settings);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -49,14 +52,14 @@ public class Settings extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId())
             {
-                case R.id.navigation_badges:
+                case id.navigation_badges:
                     startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
                     //overridePendingTransition(0,0);
                     break;
-                case R.id.navigation_home:
+                case id.navigation_home:
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     break;
-                case R.id.navigation_settings:
+                case id.navigation_settings:
                     break;
             }
             return true;
@@ -71,18 +74,20 @@ public class Settings extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Set settings selected
+                bottomNavigationView.setSelectedItemId(id.navigation_home);
                 startActivity(new Intent(Settings.this, MainActivity.class));
             }
         });
 
-        //logoutBtn.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        FirebaseAuth.getInstance().signOut();
-        //        Intent intent = new Intent(Settings.this, LoginActivity.class);
-        //        startActivity(intent);
-        //    }
-        //});
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(Settings.this, LoginActivity.class);
+                    startActivity(intent);
+            }
+        });
 
         btnTextSize.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -104,15 +109,22 @@ public class Settings extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ContactUs.class));
             }
         });
+
+        btnFAQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Settings.this, FAQ.class));
+            }
+        });
     }
 
     private void updateNameText(String name) {
-        TextView settingsNameplate = (TextView) findViewById(R.id.settings_nameplate);
+        TextView settingsNameplate = (TextView) findViewById(id.settings_nameplate);
         settingsNameplate.setText(name);
     }
 
     private void updateEmailText(String phone) {
-        TextView email = (TextView) findViewById(R.id.settingsEmailDisplay);
+        TextView email = (TextView) findViewById(id.settingsEmailDisplay);
         email.setText(phone);
     }
 }

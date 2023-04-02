@@ -20,25 +20,26 @@
             <RelativeLayout
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
+                android:background="@color/purple_401"
                 tools:ignore="UselessParent">
 
-                <Button
-                    android:id="@+id/backButton"
+                <ImageButton
                     style="@style/Widget.AppCompat.Button.Borderless"
+                    android:src="@drawable/back_btn"
+                    android:id="@+id/backButton"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    android:text="@string/back"
                     android:textColor = "@color/white"
                     android:layout_marginStart="-10dp"
                     />
+
                 <!-- app:icon="@drawable/back_btn" -->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "Add a Badge"
+                    android:text="@string/add_a_badge"
                     android:layout_centerInParent = "true"
                     android:textColor = "@color/white"
                     android:textStyle= "bold"
@@ -53,51 +54,71 @@
         android:layout_width="match_parent"
         android:layout_marginTop="48dp"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/purple_339"
         android:orientation="vertical"
         android:padding="16dp">
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Badge Name"
-            android:inputType="textPersonName" />
+            android:id="@+id/badgeName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor = "@color/black"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            android:background="@drawable/custom_input"
+            android:layout_marginBottom="15dp"
+            android:inputType="textPersonName"
+            android:hint="@string/badge_name"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:backgroundTint="@color/white"
+            android:selectAllOnFocus="true"/>
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="Class Name"
-            android:inputType="textEmailAddress" />
+            android:id="@+id/className"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor = "@color/black"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            android:background="@drawable/custom_input"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:hint="@string/class_name"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/white"
+            android:selectAllOnFocus="true"/>
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:textColor="#fff"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/design_default_color_primary_variant"
+            android:id="@+id/badgeCriteria"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor = "@color/black"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            android:background="@drawable/custom_input"
+            android:layout_marginBottom="15dp"
             android:gravity="top"
-            android:hint="@string/badge_completion_requirements"
-            android:fitsSystemWindows="true"
-            android:breakStrategy="balanced"
-            android:inputType="textMultiLine"
-            android:singleLine="false"
-            android:padding="5dp" />
+            android:inputType="textImeMultiLine"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:hint="@string/badge_details"
+            android:backgroundTint="@color/white"
+            android:selectAllOnFocus="true"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/design_default_color_primary"
-            android:elevation="4dp"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:text="@string/create_badge"
-            android:textColor="#fff"
-            />
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_back_secondary_200"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView

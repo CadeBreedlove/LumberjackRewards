@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
-            android:background="#401C73"
+            android:background="@color/purple_401"
             >
 
             <ImageButton
@@ -105,13 +105,13 @@
                 android:paddingEnd="30dp"
                 android:text="@string/edit_profile"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical"
                 android:padding="15dp"
@@ -215,7 +215,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/security_icon"
                         android:src="@drawable/privacy_icon"
-                        android:text="@string/security_privacy"
+                        android:text="@string/privacy_amp_security"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
@@ -373,13 +373,15 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/faqButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/right_arrow_icon"
-                        android:contentDescription="@string/profile_icon"/>
+                        android:background="@null"
+                        android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -421,14 +423,15 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/logoutButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/right_arrow_icon"
-                        android:contentDescription="@string/settings"
-                        android:paddingBottom="5dp"/>
+                        android:background="@null"
+                        android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

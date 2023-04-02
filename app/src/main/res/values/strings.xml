@@ -43,4 +43,19 @@
     <string name="Application_Role">Application Role</string>
     <string name="message_contents">Message Contents</string>
     <string name="submit">Submit</string>
+    <string name="full_name">Full Name</string>
+    <string name="add_a_badge">Add a Badge</string>
+    <string name="badge_name">Badge Name</string>
+    <string name="class_name">Class Name</string>
+    <string name="badge_details">Badge Criteria</string>
+    <string name="faq_s">FAQ\'s</string>
+    <string name="stem_building">STEM Building</string>
+    <string name="suite_312">Suite 312</string>
+    <string name="p_o_box_13063_sfa_station_nacogdoches_texas_75962">P.O. Box 13063, SFA Station Nacogdoches, Texas 75962</string>
+    <string name="mailing_address">Mailing Address</string>
+    <string name="_936_468_2508">936.468.2508</string>
+    <string name="phone">Phone</string>
+    <string name="come_see_us">Come See Us!</string>
+    <string name="todo">TODO</string>
+    <string name="frequently_asked_quesitons">Frequently Asked Quesitons</string>
 </resources>
