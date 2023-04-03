@@ -27,18 +27,18 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.settings_page);
 
         ImageView logoutBtn = (ImageView)findViewById(R.id.logoutButton);
-        ImageButton backBtn = (ImageButton)findViewById(id.backButton);
-        Button btnEditProfile = (Button)findViewById(id.btnEditProfile);
-        ImageButton btnTextSize = (ImageButton) findViewById(id.textSizeButton);
-        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(id.securityPrivacyButton);
-        ImageButton btnContactUs = (ImageButton) findViewById(id.contactUsButton);
-        ImageButton btnFAQ = (ImageButton) findViewById(id.faqButton);
+        ImageButton backBtn = (ImageButton)findViewById(R.id.backButton);
+        Button btnEditProfile = (Button)findViewById(R.id.btnEditProfile);
+        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
+        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
+        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
+        ImageButton btnFAQ = (ImageButton) findViewById(R.id.faqButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
 
         // Set settings selected
-        bottomNavigationView.setSelectedItemId(id.navigation_settings);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -75,7 +75,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Set settings selected
-                bottomNavigationView.setSelectedItemId(id.navigation_home);
+                bottomNavigationView.setSelectedItemId(R.id.navigation_home);
                 startActivity(new Intent(Settings.this, MainActivity.class));
             }
         });
@@ -119,12 +119,12 @@ public class Settings extends AppCompatActivity {
     }
 
     private void updateNameText(String name) {
-        TextView settingsNameplate = (TextView) findViewById(id.settings_nameplate);
+        TextView settingsNameplate = (TextView) findViewById(R.id.settings_nameplate);
         settingsNameplate.setText(name);
     }
 
     private void updateEmailText(String phone) {
-        TextView email = (TextView) findViewById(id.settingsEmailDisplay);
+        TextView email = (TextView) findViewById(R.id.settingsEmailDisplay);
         email.setText(phone);
     }
 }

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,18 +27,18 @@ public class ActivityAddBadge extends AppCompatActivity {
     private EditText badgeDescription;
     private FirebaseFirestore db;
     private Button createBadge;
-    private Button backButton;
+    private ImageButton returnButton;
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_badge);
 
         db = FirebaseFirestore.getInstance();
-        badgeName = findViewById(R.id.etBadgeName);
-        badgeClassName = findViewById(R.id.etClassName);
-        badgeDescription = findViewById(R.id.etDescription);
-        createBadge = findViewById(R.id.btnCreateBadge);
-        backButton = findViewById(R.id.btnBackButton);
+        badgeName = findViewById(R.id.badgeName);
+        badgeClassName = findViewById(R.id.className);
+        badgeDescription = findViewById(R.id.badgeDescription);
+        createBadge = findViewById(R.id.createBadge);
+        returnButton = findViewById(R.id.backButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

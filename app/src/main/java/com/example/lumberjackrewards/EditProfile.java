@@ -69,6 +69,7 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 saveChanges(user);
                 startActivity(new Intent(EditProfile.this, Settings.class));
+
             }
         });
     }
