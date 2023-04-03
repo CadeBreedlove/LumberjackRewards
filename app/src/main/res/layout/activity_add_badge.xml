@@ -86,8 +86,7 @@
             android:hint="@string/badge_completion_requirements"
             android:inputType="textMultiLine"
             android:padding="5dp"
-            android:singleLine="false"
-            android:textColor="#fff" />
+            android:singleLine="false" />
 
         <Button
             android:id="@+id/btnCreateBadge"
