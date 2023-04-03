@@ -1,236 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/myCoordinatorLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ContactUs" >
-    <!-- Top Navbar -->
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <!-- Top Navigation Bar -->
-        <LinearLayout
-            android:id="@+id/textSizeNavBar"
-            android:layout_width = "match_parent"
+    tools:context=".Settings"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ContactUs" >
+        <!-- Top Navbar -->
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <RelativeLayout
+            android:orientation="horizontal">
+            <!-- Top Navigation Bar -->
+            <LinearLayout
+                android:id="@+id/textSizeNavBar"
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_401"
-                tools:ignore="UselessParent">
-
-                <ImageButton
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:src="@drawable/back_btn"
-                    android:id="@+id/backButton"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:visibility="visible"
-                    android:textColor = "@color/white"
-                    android:layout_marginStart="-10dp"
-                    />
-
-                <!-- app:icon="@drawable/back_btn" -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_us"
-                    android:layout_centerInParent = "true"
-                    android:textColor = "@color/white"
-                    android:textStyle= "bold"
-                    android:textSize = "18sp"
-                    android:visibility="visible"
-                    />
-            </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
-        android:layout_height="match_parent"
-        android:background="@color/purple_339"
-        android:orientation="vertical"
-        android:padding="16dp"
-        >
-
-        <EditText
-            android:id="@+id/personName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor = "@color/black"
-            android:textSize = "18sp"
-            android:visibility="visible"
-            android:background="@drawable/custom_input"
-            android:layout_marginBottom="15dp"
-            android:inputType="textPersonName"
-            android:text="@string/full_name"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
-
-        <EditText
-            android:id="@+id/contactEmail"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor = "@color/black"
-            android:textSize = "18sp"
-            android:visibility="visible"
-            android:background="@drawable/custom_input"
-            android:layout_marginBottom="15dp"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            android:text="@string/email"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:backgroundTint="@color/white" />
-
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/custom_input"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:gravity="top"
-            android:selectAllOnFocus="true"
-            android:inputType="textMultiLine"
-            android:singleLine="false"
-            android:padding="5dp"
-            android:textColor = "@color/black"
-            android:text="@string/message_contents"
-            android:backgroundTint="@color/white" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSubmit"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/round_back_secondary_200"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:text="@string/submit"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <!-- Contact Us Footer-->
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:layout_height="120dp"
-        android:layout_width="match_parent"
-        android:background="@color/purple_339"
-        android:layout_marginTop="550dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="65dp">
-        <LinearLayout
-            android:id="@+id/a"
-            android:layout_height="match_parent"
-            android:layout_width="145dp"
-            android:orientation="vertical"
-            android:layout_toLeftOf="@+id/come_see_us"
-            android:padding="6dp">
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/phone"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-            <TextView
-                android:paddingTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/_936_468_2508"
-                android:textAlignment="center"
-                android:textColor="@color/white"
+                android:orientation="horizontal"
                 >
-            </TextView>
-        </LinearLayout>
+                <RelativeLayout
+                    android:layout_width = "match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/purple_401"
+                    tools:ignore="UselessParent">
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="560dp"
-            android:background="@color/white"
-            android:layout_toEndOf="@id/a" />
+                    <ImageButton
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:src="@drawable/back_btn"
+                        android:id="@+id/backButton"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:textColor = "@color/white"
+                        android:layout_marginStart="-10dp"
+                        />
+
+                    <!-- app:icon="@drawable/back_btn" -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_us"
+                        android:layout_centerInParent = "true"
+                        android:textColor = "@color/white"
+                        android:textStyle= "bold"
+                        android:textSize = "18sp"
+                        android:visibility="visible"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/mailingAddress"
+            android:layout_width="match_parent"
+            android:layout_marginTop="48dp"
             android:layout_height="match_parent"
-            android:layout_width="140dp"
+            android:background="@color/purple_339"
             android:orientation="vertical"
-            android:layout_toRightOf="@id/come_see_us"
-            android:padding="6dp">
-            <TextView
-                android:textStyle="bold"
+            android:padding="16dp"
+            >
+
+            <EditText
+                android:id="@+id/personName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mailing_address"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-            <TextView
-                android:paddingTop="15dp"
+                android:layout_height="40dp"
+                android:textColor = "@color/black"
+                android:textSize = "18sp"
+                android:visibility="visible"
+                android:background="@drawable/custom_input"
+                android:layout_marginBottom="15dp"
+                android:inputType="textPersonName"
+                android:text="@string/full_name"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:backgroundTint="@color/white"
+                android:selectAllOnFocus="true"/>
+
+            <EditText
+                android:id="@+id/contactEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/p_o_box_13063_sfa_station_nacogdoches_texas_75962"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
+                android:layout_height="40dp"
+                android:textColor = "@color/black"
+                android:textSize = "18sp"
+                android:visibility="visible"
+                android:background="@drawable/custom_input"
+                android:layout_marginBottom="15dp"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                android:text="@string/email"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:backgroundTint="@color/white" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_input"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:gravity="top"
+                android:selectAllOnFocus="true"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp"
+                android:textColor = "@color/black"
+                android:text="@string/message_contents"
+                android:backgroundTint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_back_secondary_200"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@string/submit"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
         </LinearLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="560dp"
-            android:background="@color/white"
-            android:layout_toEndOf="@id/come_see_us"/>
+        <!-- Contact Us Footer-->
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_height="120dp"
+            android:layout_width="match_parent"
+            android:background="@color/purple_339"
+            android:layout_marginTop="550dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="65dp">
+            <LinearLayout
+                android:id="@+id/a"
+                android:layout_height="match_parent"
+                android:layout_width="145dp"
+                android:orientation="vertical"
+                android:layout_toLeftOf="@+id/come_see_us"
+                android:padding="6dp">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+                <TextView
+                    android:paddingTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_936_468_2508"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    >
+                </TextView>
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/come_see_us"
-            android:layout_height="match_parent"
-            android:layout_width="140dp"
-            android:orientation="vertical"
-            android:layout_centerHorizontal="true"
-            android:padding="6dp">
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/come_see_us"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-            <TextView
-                android:paddingTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/stem_building"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-            <TextView
-                android:paddingTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/suite_312"
-                android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-        </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="560dp"
+                android:background="@color/white"
+                android:layout_toEndOf="@id/a" />
+
+            <LinearLayout
+                android:id="@+id/mailingAddress"
+                android:layout_height="match_parent"
+                android:layout_width="140dp"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/come_see_us"
+                android:padding="6dp">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mailing_address"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+                <TextView
+                    android:paddingTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_o_box_13063_sfa_station_nacogdoches_texas_75962"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="560dp"
+                android:background="@color/white"
+                android:layout_toEndOf="@id/come_see_us"/>
+
+            <LinearLayout
+                android:id="@+id/come_see_us"
+                android:layout_height="match_parent"
+                android:layout_width="140dp"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:padding="6dp">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/come_see_us"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+                <TextView
+                    android:paddingTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stem_building"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+                <TextView
+                    android:paddingTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/suite_312"
+                    android:textAlignment="center"
+                    android:textColor="@color/white">
+                </TextView>
+            </LinearLayout>
+        </RelativeLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav_menu"/>
     </RelativeLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"/>
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

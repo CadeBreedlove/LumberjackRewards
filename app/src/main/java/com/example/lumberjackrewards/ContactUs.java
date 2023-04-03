@@ -1,16 +1,25 @@
 package com.example.lumberjackrewards;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class ContactUs extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +31,17 @@ public class ContactUs extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
-
-        // Perform item selected listener for settings page
+        if(user != null) {
+            String[] temp = user.getDisplayName().split(" ");
+            EditText firstName = findViewById(R.id.personName);
+            firstName.setText(temp[0] + " " + temp[1]);
+            EditText contactEmail = findViewById(R.id.contactEmail);
+            contactEmail.setText(user.getEmail());
+        }
+        // Perform item selected listener for settings page (nav bar)
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId())
             {
@@ -47,8 +62,14 @@ public class ContactUs extends AppCompatActivity {
         btn.setOnClickListener(v -> startActivity(new Intent(ContactUs.this, Settings.class)));
 
         btnSubmit.setOnClickListener(v -> {
-            // do something
+            // calls method to submit the contact form
+            submitContactForm(user);
+            startActivity((new Intent(getApplicationContext(), Settings.class)));
         });
+    }
+
+    private void submitContactForm(FirebaseUser user) {
+        // do something
     }
 }
 
