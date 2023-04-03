@@ -4,47 +4,54 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings_Text_Size">
+    tools:context=".Settings_Text_Size"
+    android:background="@color/purple_339">
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".Settings_Text_Size">
-        <!-- Top Navigation Bar -->
-        <LinearLayout
-            android:id="@+id/textSizeNavBar"
-            android:layout_width = "match_parent"
+        <!-- Top Navbar -->
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <RelativeLayout
+            android:orientation="horizontal">
+            <!-- Top Navigation Bar -->
+            <LinearLayout
+                android:id="@+id/textSizeNavBar"
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
+                android:orientation="horizontal"
                 >
-
-                <Button
-                    android:id="@+id/btnBackButton"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="100dp"
+                <RelativeLayout
+                    android:layout_width = "match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="visible"
-                    android:text="BACK"
-                    android:textColor = "@color/white"
-                    android:layout_marginStart="-10dp"
-                    />
-                <!-- app:icon="@drawable/back_btn" -->
+                    android:background="#401C73"
+                    tools:ignore="UselessParent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text = "@string/text_size"
-                    android:layout_centerInParent = "true"
-                    android:textColor = "@color/white"
-                    android:textStyle= "bold"
-                    android:textSize = "18sp"
-                    android:visibility="visible"
-                    />
-            </RelativeLayout>
+                    <ImageButton
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:src="@drawable/back_btn"
+                        android:id="@+id/backButton"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:textColor = "@color/white"
+                        android:layout_marginStart="-10dp"
+                        />
+
+                    <!-- app:icon="@drawable/back_btn" -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_size"
+                        android:layout_centerInParent = "true"
+                        android:textColor = "@color/white"
+                        android:textStyle= "bold"
+                        android:textSize = "18sp"
+                        android:visibility="visible"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -53,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="@string/adjust_your_text_size"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="17sp" />
 
         <SeekBar
@@ -62,7 +69,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:max="10"
-            android:thumbTint="@color/purple_700"
+            android:thumbTint="@color/white"
             android:progress="5"
             android:scaleX="2"
             android:scaleY="2" />

@@ -19,9 +19,11 @@
         <activity android:name=".Settings"/>
         <activity android:name=".Settings_Text_Size" />
         <activity android:name=".Settings_Security_Privacy" />
-        <activity android:name=".ActivityAddBadge" /><activity android:name=".Settings_Text_Size" />
-        <activity android:name=".Settings_Security_Privacy" />
         <activity android:name=".ActivityAddBadge" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".FAQ"/>
+
         <activity android:name=".BadgesActivity"/>
         <activity
             android:name=".LoginActivity"

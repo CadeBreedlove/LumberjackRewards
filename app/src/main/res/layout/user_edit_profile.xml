@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ActivityAddBadge" >
+    tools:context=".EditProfile" >
     <!-- Top Navbar -->
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_a_badge"
+                    android:text="@string/edit_profile"
                     android:layout_centerInParent = "true"
                     android:textColor = "@color/white"
                     android:textStyle= "bold"
@@ -59,24 +59,24 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/badgeName"
+            android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:text = "@string/first_name"
             android:textColor = "@color/black"
             android:textSize = "18sp"
+            android:outlineAmbientShadowColor="@color/white"
             android:visibility="visible"
             android:background="@drawable/custom_input"
             android:layout_marginBottom="15dp"
-            android:inputType="textPersonName"
-            android:hint="@string/badge_name"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
+            android:backgroundTint="@color/white" />
 
         <EditText
-            android:id="@+id/className"
+            android:id="@+id/lastName"
             android:layout_width="match_parent"
+            android:hint = "@string/last_name"
             android:layout_height="40dp"
             android:textColor = "@color/black"
             android:textSize = "18sp"
@@ -85,30 +85,39 @@
             android:layout_marginBottom="15dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:hint="@string/class_name"
+            android:backgroundTint="@color/white" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:hint = "@string/email"
+            android:layout_height="40dp"
+            android:textColor = "@color/black"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            android:background="@drawable/custom_input"
+            android:layout_marginBottom="15dp"
             android:inputType="textEmailAddress"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:backgroundTint="@color/white" />
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/role"
+            android:layout_width="match_parent"
+            android:hint = "@string/Application_Role"
+            android:layout_height="40dp"
+            android:textColor = "@color/black"
+            android:textSize = "18sp"
+            android:visibility="visible"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:gravity="top"
-            android:selectAllOnFocus="true"
-            android:inputType="textMultiLine"
-            android:singleLine="false"
-            android:padding="5dp"
-            android:textColor = "@color/black"
-            android:hint="@string/badge_completion_requirements"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAddBadge"
+            android:id="@+id/saveButton"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -116,15 +125,16 @@
             android:background="@drawable/round_back_secondary_200"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:text="@string/submit"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
+            android:text="@string/save_changes"
+            android:textColor="@color/black"
+            android:textAllCaps="false" />
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_navigation"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:layout_alignParentBottom="true"
-    app:menu="@menu/bottom_nav_menu"/>
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"
+        />
 </RelativeLayout>
