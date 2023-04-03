@@ -250,4 +250,36 @@ public class BadgesActivity extends AppCompatActivity {
         });
 
     }
+
+    public void DeleteBadgeFromUser(String userID, String badgeID) {
+        db.collection("users").document(userID).collection("badges").whereEqualTo("badgeID", badgeID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                db.collection("users").document(userID).collection("badges").document(document.getId())
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w("ERROR", "Error deleting document", e);
+                                            }
+                                        });
+
+                            }
+                        } else {
+                            Log.d("ERROR", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
 }
