@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings_Text_Size">
+    tools:context=".Settings_Text_Size"
+    android:background="@color/purple_339">
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -59,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="@string/adjust_your_text_size"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="17sp" />
 
         <SeekBar
@@ -68,7 +69,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:max="10"
-            android:thumbTint="@color/purple_500"
+            android:thumbTint="@color/white"
             android:progress="5"
             android:scaleX="2"
             android:scaleY="2" />

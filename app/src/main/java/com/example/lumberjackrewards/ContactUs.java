@@ -3,20 +3,16 @@ package com.example.lumberjackrewards;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+
 
 public class ContactUs extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
@@ -40,6 +36,7 @@ public class ContactUs extends AppCompatActivity {
             firstName.setText(temp[0] + " " + temp[1]);
             EditText contactEmail = findViewById(R.id.contactEmail);
             contactEmail.setText(user.getEmail());
+            submitContactForm(user);
         }
         // Perform item selected listener for settings page (nav bar)
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -68,8 +65,16 @@ public class ContactUs extends AppCompatActivity {
         });
     }
 
+    // Method called once the btnSubmit is pressed.
+    // Sends user a pop-up message and redirects to
+    // settings page for now.
     private void submitContactForm(FirebaseUser user) {
-        // do something
+        //String s = "Submitted!";
+        //Snackbar.make(findViewById(R.id.myCoordinatorLayout), R.string.save_changes,
+        //                Snackbar.LENGTH_SHORT)
+        //        .show();
+
+
     }
 }
 

@@ -78,7 +78,7 @@ public class EditProfile extends AppCompatActivity {
         String fName = temp[0].trim();
         String lName = temp[1].trim();
         String eMail = user.getEmail().trim();
-        String role = user.getProviderId();
+        String role = user.getUid();
         EditText f = findViewById(R.id.firstName);
         EditText l = findViewById(R.id.lastName);
         EditText e = findViewById(R.id.email);
