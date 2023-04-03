@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,7 +15,7 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(int badgeID, String description, String name, String icon) {
+    public BadgeItemModel(int badgeID, String description, String name,String icon) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
@@ -46,13 +47,9 @@ public class BadgeItemModel {
         this.name = name;
     }
 
-    public String getIcon() {
-        return icon;
-    }
+    public String getIcon() {return icon;}
 
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+    public void setIcon(String icon) {this.icon = icon;}
 
     @Override
     public String toString() {

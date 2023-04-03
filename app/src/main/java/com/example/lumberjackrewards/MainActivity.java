@@ -5,7 +5,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Dynamically update welcome msg for current, logged-in user
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            updateTextView(user.getDisplayName());
+        }
+
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
 
         // Set Home selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
@@ -38,5 +47,11 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+    }
+
+    private void updateTextView(String newText) {
+        String welcomeMessage = "Welcome " + newText;
+        TextView textView = (TextView) findViewById(R.id.welcomeNameTextView);
+        textView.setText(newText);
     }
 }

@@ -4,6 +4,7 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="purple_339">#FF5F3393</color>
+    <color name="purple_401">#401C73</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -16,4 +17,7 @@
     <color name = "notifications">#13B2C3</color>
     <color name = "private_account">#E6A326</color>
     <color name = "security">#095F69</color>
+    <color name = "gray">#302F2F</color>
+    <color name = "grey">#AFAFAF</color>
+    <color name = "light_grey">#EEECEC</color>
 </resources>
