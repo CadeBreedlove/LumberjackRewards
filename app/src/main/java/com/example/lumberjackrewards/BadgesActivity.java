@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.GridLayout;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -172,6 +175,16 @@ public class BadgesActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(BadgesActivity.this);
+                            builder.setMessage("You are about to remove this badge.");
+                            builder.setTitle("Notice");
+                            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            });
+                            builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which) -> {
+                                dialog.cancel();
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 db.collection("badges").document(document.getId())

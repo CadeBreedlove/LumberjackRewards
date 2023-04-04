@@ -1,7 +1,5 @@
 package com.example.lumberjackrewards;
 
-
-import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -12,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,12 +79,26 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        // logging out gives you a notice before confirming
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(Settings.this, LoginActivity.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+                builder.setMessage("You are about to sign out.");
+                builder.setTitle("Notice");
+                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(Settings.this, LoginActivity.class);
+                    startActivity(intent);
+                });
+                builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which) -> {
+                   dialog.cancel();
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+
             }
         });
 
