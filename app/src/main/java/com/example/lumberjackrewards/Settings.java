@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
