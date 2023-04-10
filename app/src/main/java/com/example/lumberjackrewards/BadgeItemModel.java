@@ -6,11 +6,15 @@ import android.util.Log;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class BadgeItemModel {
+import java.io.Serializable;
+
+public class BadgeItemModel implements Serializable {
     private int badgeID;
     private String description;
     private String name;
     private String icon;
+
+    private boolean isPinned;
 
     // on below line are the class constructors
     public BadgeItemModel(){}
@@ -20,6 +24,7 @@ public class BadgeItemModel {
         this.description = description;
         this.name = name;
         this.icon = icon;
+        this.isPinned = false;
     }
 
     // getters and setters
@@ -50,6 +55,10 @@ public class BadgeItemModel {
     public String getIcon() {return icon;}
 
     public void setIcon(String icon) {this.icon = icon;}
+
+    public boolean getIsPinned(){return isPinned;}
+
+    public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
 
     @Override
     public String toString() {

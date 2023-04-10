@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,7 +55,9 @@ public class BadgesActivity extends AppCompatActivity {
         rvBadge.setLayoutManager(layoutManager);
 
         //set adapter
-        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
+        BadgeViewAdapter badgeViewAdap= new BadgeViewAdapter(arrBadges);
+        rvBadge.setAdapter(badgeViewAdap);
+        //rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
 
 
         // Set Home selected
@@ -65,7 +68,26 @@ public class BadgesActivity extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_home:
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+                    //Sends back to main activity what badges are pinned
+                        ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
+
+                       for(int i = 0; i < badgeViewAdap.getItemCount(); i++){
+                          boolean isPinned = badgeViewAdap.arrItemBadges.get(i).getIsPinned();
+                           if(isPinned) {
+                               pinnedBadges.add(badgeViewAdap.arrItemBadges.get(i));
+                           }
+                       }
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        if(!pinnedBadges.isEmpty()) {
+                            intent.putExtra("pinnedBadges", pinnedBadges);
+                        }
+                        startActivity(intent);
+
+                        //previous startActivity for testing for different branches
+                        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+
                     //overridePendingTransition(0,0);
                     return true;
                 case R.id.navigation_badges:
