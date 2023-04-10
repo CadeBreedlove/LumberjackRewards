@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BadgesActivity"
-    android:background="@color/purple_339">
+    android:background="@color/purple_339"
+    tools:context=".BadgesActivity">
 
     <!--on below line we are creating edit text
          for adding a new item to list-->
@@ -18,45 +18,48 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="120dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/idEdtItemName"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:autofillHints=""
-                android:hint="Enter item onto list here"
-                android:inputType=""
-                android:minHeight="48dp"
-                tools:ignore="HardcodedText,TextFields,VisualLintTextFieldSize" />
-
             <Button
-                android:id="@+id/idBtnRmv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="@string/remove"
-                android:textAllCaps="false"
-                tools:ignore="RelativeOverlap" />
+                android:id="@+id/button"
+                android:layout_width="145dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/manage_users" />
 
-            <Button
-                android:id="@+id/idBtnAdd"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="@string/add"
-                android:textAllCaps="false"
-                tools:ignore="RelativeOverlap" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/idBtnRmv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/remove"
+                    android:textAllCaps="false"
+                    tools:ignore="RelativeOverlap" />
+
+                <Button
+                    android:id="@+id/idBtnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/add"
+                    android:textAllCaps="false"
+                    tools:ignore="RelativeOverlap" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
