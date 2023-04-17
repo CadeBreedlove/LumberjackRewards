@@ -7,7 +7,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BadgeItemModel {
-    private int badgeID;
+    private long badgeID;
     private String description;
     private String name;
     private String icon;
@@ -15,7 +15,7 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(int badgeID, String description, String name,String icon) {
+    public BadgeItemModel(long badgeID, String description, String name,String icon) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
@@ -23,7 +23,7 @@ public class BadgeItemModel {
     }
 
     // getters and setters
-    public int getBadgeID() {
+    public long getBadgeID() {
         return badgeID;
     }
 

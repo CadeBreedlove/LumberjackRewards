@@ -18,55 +18,31 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="145dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/manage_users" />
-
-            <LinearLayout
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Back" />
 
-                <Button
-                    android:id="@+id/idBtnRmv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/remove"
-                    android:textAllCaps="false"
-                    tools:ignore="RelativeOverlap" />
-
-                <Button
-                    android:id="@+id/idBtnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/add"
-                    android:textAllCaps="false"
-                    tools:ignore="RelativeOverlap" />
-
-            </LinearLayout>
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add Selected Students to Class" />
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBadges"
+            android:id="@+id/rvStudents"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge2" />
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_student_view_model" />
+
     </LinearLayout>
 
     <!--list view to display list of languages-->

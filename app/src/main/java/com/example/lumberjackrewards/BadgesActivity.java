@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.GridLayout;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -111,33 +114,9 @@ public class BadgesActivity extends AppCompatActivity {
 
         // on below line we are adding click listener for our button.
         addBtn.setOnClickListener(v -> {
-            // on below line we are getting text from edit text
-            String item = itemEdt.getText().toString();
-
-            // on below line we are checking if item is not empty
-            if (!item.isEmpty()) {
-
-                // splitting String item to
-                // populate BadgeItemModel
-                String[] badgeItemAttributes = item.split(", ");
-
-                // populating BadgeItemModel
-                // int badgeID, String description, String name, String icon
-                BadgeItemModel newBadge = new BadgeItemModel(Integer.parseInt(badgeItemAttributes[0]), badgeItemAttributes[1], badgeItemAttributes[2], badgeItemAttributes[3]);
-
-                // adding badge to database
-                newBadge.addNewBadgeItem(db);
-
-                displayAllBadges(arrBadges);
-                // on below line we are adding item to our list.
-                //lngList.add(newBadge);
-
-                // on below line we are notifying adapter
-                // that data in list is updated to
-                // update our list view.
-                //adapter.notifyDataSetChanged();
-            }
-
+            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
+            startActivity(intent);
+            finish();
         });
 
         removeBtn.setOnClickListener(v -> {
@@ -200,6 +179,16 @@ public class BadgesActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(BadgesActivity.this);
+                            builder.setMessage("You are about to remove this badge.");
+                            builder.setTitle("Notice");
+                            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            });
+                            builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which) -> {
+                                dialog.cancel();
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 db.collection("badges").document(document.getId())
@@ -223,8 +212,8 @@ public class BadgesActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
+
 
     public void AssignBadge(String userID, String badgeId) {
         // Get the collection reference
