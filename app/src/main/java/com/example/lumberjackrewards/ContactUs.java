@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ContactUs extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @Override
-    protected void  onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contact_us);
 

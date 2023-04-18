@@ -59,4 +59,8 @@
     <string name="come_see_us">Come See Us!</string>
     <string name="todo">TODO</string>
     <string name="frequently_asked_quesitons">Frequently Asked Quesitons</string>
+    <string name="manage">Manage</string>
+    <string name="manage_classes">Manage Classes</string>
+    <string name="manage_students">Manage Students</string>
+    <string name="add_a_class">Add a Class</string>
 </resources>

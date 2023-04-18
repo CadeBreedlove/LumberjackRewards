@@ -43,8 +43,8 @@ public class ActivityAddBadge extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
 
-        // Set settings selected
-        bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
+        // Set badges selected
+        bottomNavigationView.setSelectedItemId(R.id.navigation_badges);
 
         // Perform item selected listener for settings page
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
