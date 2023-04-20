@@ -32,7 +32,6 @@ import java.util.ArrayList;
 
 public class BadgesActivity extends AppCompatActivity {
     // Badges backend
-    private EditText itemEdt;
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
     private FirebaseFirestore db;
@@ -106,7 +105,6 @@ public class BadgesActivity extends AppCompatActivity {
         /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
         Button addBtn = findViewById(R.id.idBtnAdd);
         Button removeBtn = findViewById(R.id.idBtnRmv);
-        itemEdt = findViewById(R.id.idEdtItemName);
         lngList = new ArrayList<>();
 
         // on below line we are adding click listener for our button.
@@ -118,13 +116,13 @@ public class BadgesActivity extends AppCompatActivity {
 
         removeBtn.setOnClickListener(v -> {
             // on below line we are getting text from edit text
-            String badgeName = itemEdt.getText().toString();
+            /*String badgeName = itemEdt.getText().toString();
 
             // on below line we are checking if item is not empty
             if (!badgeName.isEmpty()) {
                 deleteBadge(badgeName);
                 displayAllBadges(arrBadges);
-            }
+            }*/
 
         });
 
