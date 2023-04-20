@@ -6,6 +6,15 @@ public class UserModel {
     private String eMail;
     private String role;
     private String fullName;
+    private boolean isChecked;
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 
     public String getfName() {
         return fName;

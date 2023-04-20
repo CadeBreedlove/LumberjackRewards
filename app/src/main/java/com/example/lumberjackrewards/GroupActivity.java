@@ -1,28 +1,112 @@
 package com.example.lumberjackrewards;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class GroupActivity {
+public class GroupActivity extends AppCompatActivity {
     private FirebaseFirestore db;
+    private RecyclerView rvStudent;
+    private StudentViewAdapter adapter;
+    private Button addBtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_users);
+        db = FirebaseFirestore.getInstance();
+
+        rvStudent = findViewById(R.id.rvStudents);
+        ArrayList<UserModel> arrStudents = new ArrayList<>();
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        displayAllUsers(arrStudents);
+
+        bottomNavigationView.setSelectedItemId(R.id.navigation_badges);
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.navigation_home:
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    //overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_badges:
+                    break;
+                case R.id.navigation_settings:
+                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    //overridePendingTransition(0,0);
+                    break;
+            }
+            return true;
+        });
+
+        addBtn = findViewById(R.id.btnAddBtn);
+        addBtn.setOnClickListener(v -> {
+            ArrayList<UserModel> students;
+            students = adapter.getCheckedUsers();
+            for(int i = 0; i < students.size(); i++){
+                AssignUserToGroup("Senior Design", students.get(i).geteMail());
+            }
+
+        });
+
+
+
+    }
+
+    private void displayAllUsers(ArrayList<UserModel> arrStudents) {
+        arrStudents.clear();
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            UserModel student = document.toObject(UserModel.class);
+                            arrStudents.add(student);
+                        }
+
+                        //layout manager for badge test
+                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+
+                        //set layout manager
+                        rvStudent.setLayoutManager(layoutManager);
+
+                        //set adapter
+                        rvStudent.setAdapter(new StudentViewAdapter(arrStudents));
+
+                    }
+
+                });
+    }
 
     public void AssignBadgeToGroup(String groupID, String badgeId) {
         // Get the collection reference
-        db = FirebaseFirestore.getInstance();
+
 
         CollectionReference badgesRef = db.collection("badges");
 

@@ -5,6 +5,8 @@ import android.animation.AnimatorInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -13,7 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.auth.User;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.ViewHolder> {
 
@@ -21,6 +26,16 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
 
     public StudentViewAdapter(ArrayList<UserModel> arrStudents) {
         this.arrStudents = arrStudents;
+    }
+
+    public ArrayList<UserModel> getCheckedUsers() {
+        ArrayList<UserModel> students = new ArrayList<>();
+        for (int i = 0; i < arrStudents.size(); i++) {
+            if (arrStudents.get(i).isChecked()) {
+                students.add(arrStudents.get(i));
+            }
+        }
+        return students;
     }
 
     @NonNull
@@ -38,7 +53,6 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
 
         holder.studentViewModelName.setText(arrStudents.get(position).getFullName());
         holder.studentViewModelEmail.setText(arrStudents.get(position).geteMail());
-
     }
 
     @Override
@@ -49,6 +63,7 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView studentViewModelName;
         TextView studentViewModelEmail;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -22,7 +22,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnAddBtn"
                 android:layout_width="145dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
