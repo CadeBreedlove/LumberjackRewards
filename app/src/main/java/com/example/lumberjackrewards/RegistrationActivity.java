@@ -19,6 +19,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.AggregateQuery;
+import com.google.firebase.firestore.AggregateQuerySnapshot;
+import com.google.firebase.firestore.AggregateSource;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -28,6 +33,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private TextView RegQn;
     private TextView RegFName;
     private TextView RegLName;
+    private FirebaseFirestore db;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
@@ -82,6 +88,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     /*loader.setMessage("Registration in progress");
                     loader.setCanceledOnTouchOutside(false);
                     loader.show();*/
+                    Query query = db.collection("users");
+
+
                     mAuth.createUserWithEmailAndPassword(email,password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override

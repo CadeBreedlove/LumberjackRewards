@@ -23,15 +23,20 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BadgesActivity extends AppCompatActivity {
     // Badges backend
+    private EditText itemEdt;
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
     private FirebaseFirestore db;
@@ -186,6 +191,64 @@ public class BadgesActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 db.collection("badges").document(document.getId())
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w("ERROR", "Error deleting document", e);
+                                            }
+                                        });
+
+                            }
+                        } else {
+                            Log.d("ERROR", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+
+    public void AssignBadge(String userID, String badgeId) {
+        // Get the collection reference
+        CollectionReference badgesRef = db.collection("badges");
+
+        // Create a query to search for the document with the unique field value
+        Query query = badgesRef.whereEqualTo("badgeID", badgeId);
+
+        // Execute the query asynchronously
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String documentId = document.getId();
+                    String badgeName = document.getString("name");
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("name", badgeName);
+                    docData.put("badgeID", badgeId);
+
+                    db.collection("users").document(userID).collection("badges").document(documentId)
+                            .set(docData);
+                }
+            }
+        });
+
+    }
+
+    public void DeleteBadgeFromUser(String userID, String badgeID) {
+        db.collection("users").document(userID).collection("badges").whereEqualTo("badgeID", badgeID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                db.collection("users").document(userID).collection("badges").document(document.getId())
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
