@@ -109,7 +109,7 @@ public class BadgesActivity extends AppCompatActivity {
         /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
         Button addBtn = findViewById(R.id.idBtnAdd);
         Button removeBtn = findViewById(R.id.idBtnRmv);
-        itemEdt = findViewById(R.id.idEdtItemName);
+        // itemEdt = findViewById(R.id.idEdtItemName);
         lngList = new ArrayList<>();
 
         // on below line we are adding click listener for our button.
@@ -272,3 +272,4 @@ public class BadgesActivity extends AppCompatActivity {
                 });
     }
 }
+
