@@ -23,7 +23,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -91,12 +90,14 @@ public class BadgesActivity extends AppCompatActivity {
             {
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     return true;
                 case R.id.navigation_badges:
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(),Settings.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     break;
             }
@@ -117,6 +118,7 @@ public class BadgesActivity extends AppCompatActivity {
             finish();
         });
 
+        /*
         removeBtn.setOnClickListener(v -> {
             // on below line we are getting text from edit text
             String badgeName = itemEdt.getText().toString();
@@ -127,6 +129,7 @@ public class BadgesActivity extends AppCompatActivity {
                 displayAllBadges(arrBadges);
             }
         });
+         */
 
         btnManage.setOnClickListener(view -> {
             Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);

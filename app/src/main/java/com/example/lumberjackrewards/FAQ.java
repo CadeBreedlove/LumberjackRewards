@@ -26,13 +26,16 @@ public class FAQ extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
                     startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(), Settings.class));
+                    finish();
                     break;
             }
             return true;
@@ -42,6 +45,7 @@ public class FAQ extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FAQ.this, Settings.class));
+                finish();
             }
         });
     }

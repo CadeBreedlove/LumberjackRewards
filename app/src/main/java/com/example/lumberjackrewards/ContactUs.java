@@ -44,24 +44,31 @@ public class ContactUs extends AppCompatActivity {
             {
                 case R.id.navigation_badges:
                     startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    finish();
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(),Settings.class));
+                    finish();
                     break;
             }
             return true;
         });
 
-        btn.setOnClickListener(v -> startActivity(new Intent(ContactUs.this, Settings.class)));
+        btn.setOnClickListener(v -> {
+            startActivity(new Intent(ContactUs.this, Settings.class));
+            finish();
+        });
 
         btnSubmit.setOnClickListener(v -> {
             // calls method to submit the contact form
             submitContactForm(user);
             startActivity((new Intent(getApplicationContext(), Settings.class)));
+            finish();
         });
     }
 

@@ -53,10 +53,12 @@ public class Settings extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_badges:
                         startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                        finish();
                         //overridePendingTransition(0,0);
                         break;
                     case R.id.navigation_home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
                         break;
                     case R.id.navigation_settings:
                         break;
@@ -68,6 +70,7 @@ public class Settings extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(Settings.this, EditProfile.class));
+                    finish();
                 }
             });
             backBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +79,7 @@ public class Settings extends AppCompatActivity {
                     // Set settings selected
                     bottomNavigationView.setSelectedItemId(R.id.navigation_home);
                     startActivity(new Intent(Settings.this, MainActivity.class));
+                    finish();
                 }
             });
 

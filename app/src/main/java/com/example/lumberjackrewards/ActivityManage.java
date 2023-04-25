@@ -36,8 +36,17 @@ public class ActivityManage extends AppCompatActivity {
             }
             return true;
         });
-        btn.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), BadgesActivity.class)));
-        btnManageClasses.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ManageClasses.class)));
-        btnManageStudents.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ManageStudents.class)));
+        btn.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+            finish();
+        });
+        btnManageClasses.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), ManageClasses.class));
+            finish();
+        });
+        btnManageStudents.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), ManageStudents.class));
+            finish();
+        });
     }
 }

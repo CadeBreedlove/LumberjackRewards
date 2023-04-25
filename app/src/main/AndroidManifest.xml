@@ -25,6 +25,7 @@
         <activity android:name=".ActivityManage"/>
         <activity android:name=".ManageClasses"/>
         <activity android:name=".ManageStudents"/>
+        <activity android:name=".ActivityAddClass"/>
 
         <activity android:name=".BadgesActivity"/>
         <activity

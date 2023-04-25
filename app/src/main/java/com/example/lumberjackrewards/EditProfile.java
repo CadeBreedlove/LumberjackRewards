@@ -48,13 +48,16 @@ public class EditProfile extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
                     startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(), Settings.class));
+                    finish();
                     break;
             }
             return true;
@@ -64,6 +67,7 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditProfile.this, Settings.class));
+                finish();
             }
         });
 
@@ -72,7 +76,7 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 saveChanges(user);
                 startActivity(new Intent(EditProfile.this, Settings.class));
-
+                finish();
             }
         });
     }

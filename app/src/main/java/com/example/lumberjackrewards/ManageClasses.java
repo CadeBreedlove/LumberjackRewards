@@ -13,6 +13,7 @@ public class ManageClasses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classes);
         Button btn = findViewById(R.id.backButton);
+        Button btnAddClass = findViewById(R.id.btnAddClass);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         // Perform item selected listener for settings page (nav bar)
@@ -20,17 +21,28 @@ public class ManageClasses extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
                     startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    finish();
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
                     break;
                 case R.id.navigation_settings:
                     startActivity(new Intent(getApplicationContext(), Settings.class));
+                    finish();
                     break;
             }
             return true;
         });
-        btn.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ActivityManage.class)));
+        btn.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), ActivityManage.class));
+            finish();
+        });
+        btnAddClass.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), ActivityAddClass.class));
+            finish();
+        });
     }
+
 }
