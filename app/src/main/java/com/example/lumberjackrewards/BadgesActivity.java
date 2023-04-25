@@ -110,11 +110,18 @@ public class BadgesActivity extends AppCompatActivity {
         /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
         Button addBtn = findViewById(R.id.idBtnAdd);
         Button removeBtn = findViewById(R.id.idBtnRmv);
+        Button btnManage = findViewById(R.id.btnManage);
         lngList = new ArrayList<>();
 
         // on below line we are adding click listener for our button.
         addBtn.setOnClickListener(v -> {
             Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
+            startActivity(intent);
+            finish();
+        });
+
+        btnManage.setOnClickListener(v -> {
+            Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);
             startActivity(intent);
             finish();
         });

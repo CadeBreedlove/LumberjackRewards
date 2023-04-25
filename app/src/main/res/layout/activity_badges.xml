@@ -22,38 +22,37 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnAddBtn"
+                android:id="@+id/btnManage"
                 android:layout_width="145dp"
-                android:layout_height="match_parent"
+                android:layout_height="120dp"
                 android:layout_weight="1"
+                android:layout_marginStart="4dp"
                 android:text="@string/manage_users" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="120dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/idBtnRmv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
                     android:text="@string/remove"
+                    android:layout_marginBottom="0dp"
                     android:textAllCaps="false"
                     tools:ignore="RelativeOverlap" />
 
                 <Button
                     android:id="@+id/idBtnAdd"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
                     android:text="@string/add"
                     android:textAllCaps="false"
                     tools:ignore="RelativeOverlap" />
