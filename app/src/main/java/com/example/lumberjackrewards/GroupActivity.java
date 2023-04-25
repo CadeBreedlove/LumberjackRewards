@@ -32,6 +32,7 @@ public class GroupActivity extends AppCompatActivity {
     private RecyclerView rvStudent;
     private StudentViewAdapter adapter;
     private Button addBtn;
+    private Button rmvBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,17 @@ public class GroupActivity extends AppCompatActivity {
 
         });
 
+        // uncomment when we add front end for removing users
+        /*rmvBtn = findViewById(R.id.idBtnRmv);
+        rmvBtn.setOnClickListener(v -> {
+            ArrayList<UserModel> students;
+            students = adapter.getCheckedUsers();
+            for(int i = 0; i < students.size(); i++){
+                DeleteUserFromGroup("Senior Design", students.get(i).geteMail());
+            }
+        });*/
+
+
 
 
     }
@@ -101,64 +113,6 @@ public class GroupActivity extends AppCompatActivity {
 
                     }
 
-                });
-    }
-
-    public void AssignBadgeToGroup(String groupID, String badgeId) {
-        // Get the collection reference
-
-
-        CollectionReference badgesRef = db.collection("badges");
-
-        // Create a query to search for the document with the unique field value
-        Query query = badgesRef.whereEqualTo("badgeID", badgeId);
-
-        // Execute the query asynchronously
-        query.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                for (QueryDocumentSnapshot document : task.getResult()) {
-                    String documentId = document.getId();
-                    String badgeName = document.getString("name");
-                    Map<String, Object> docData = new HashMap<>();
-                    docData.put("name", badgeName);
-                    docData.put("badgeID", badgeId);
-
-                    db.collection("groups").document(groupID).collection("badges").document(documentId)
-                            .set(docData);
-                }
-            }
-        });
-    }
-
-    public void DeleteBadgeFromGroup(String groupID, String badgeID) {
-        db.collection("groups").document(groupID).collection("badges").whereEqualTo("badgeID", badgeID)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                db.collection("groups").document(groupID).collection("badges").document(document.getId())
-                                        .delete()
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w("ERROR", "Error deleting document", e);
-                                            }
-                                        });
-
-                            }
-                        } else {
-                            Log.d("ERROR", "Error getting documents: ", task.getException());
-                        }
-                    }
                 });
     }
 
@@ -198,6 +152,64 @@ public class GroupActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 db.collection("groups").document(groupID).collection("users").document(document.getId())
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w("ERROR", "Error deleting document", e);
+                                            }
+                                        });
+
+                            }
+                        } else {
+                            Log.d("ERROR", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    public void AssignBadgeToGroup(String groupID, String badgeId) {
+        // Get the collection reference
+
+
+        CollectionReference badgesRef = db.collection("badges");
+
+        // Create a query to search for the document with the unique field value
+        Query query = badgesRef.whereEqualTo("badgeID", badgeId);
+
+        // Execute the query asynchronously
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String documentId = document.getId();
+                    String badgeName = document.getString("name");
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("name", badgeName);
+                    docData.put("badgeID", badgeId);
+
+                    db.collection("groups").document(groupID).collection("badges").document(documentId)
+                            .set(docData);
+                }
+            }
+        });
+    }
+
+    public void DeleteBadgeFromGroup(String groupID, String badgeID) {
+        db.collection("groups").document(groupID).collection("badges").whereEqualTo("badgeID", badgeID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                db.collection("groups").document(groupID).collection("badges").document(document.getId())
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
