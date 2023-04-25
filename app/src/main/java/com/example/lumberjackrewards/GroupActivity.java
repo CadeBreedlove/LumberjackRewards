@@ -1,19 +1,11 @@
 package com.example.lumberjackrewards;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridLayout;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +16,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -34,61 +25,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BadgesActivity extends AppCompatActivity {
-    // Badges backend
-    private EditText itemEdt;
-    private ArrayList<BadgeItemModel> lngList;
-    private ArrayAdapter<BadgeItemModel> adapter;
+public class GroupActivity extends AppCompatActivity {
     private FirebaseFirestore db;
-    private RecyclerView rvBadge;
+    private RecyclerView rvStudent;
+    private StudentViewAdapter adapter;
+    private Button addBtn;
+    private Button rmvBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_badges);
-
-        // on below line we are accessing Cloud Firestore instance
+        setContentView(R.layout.activity_users);
         db = FirebaseFirestore.getInstance();
 
-        // Initialize and assign variable
-        rvBadge = findViewById(R.id.rvBadges);
-        ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
+        rvStudent = findViewById(R.id.rvStudents);
+        ArrayList<UserModel> arrStudents = new ArrayList<>();
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
-        //testing badge recycle view layout
-        /*for (int i = 0; i < 40; i++){
-            //Add values in array List
-            arrBadges.add(new BadgeItemModel(i, "test", "Example" + i, "badge_ex1"));
-        }*/
-        /*db.collection("badges")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-                            arrBadges.add(badge);
-                        }
-                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
+        displayAllUsers(arrStudents);
 
-
-                        //layout manager for badge test
-                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
-
-                        //set layout manager
-                        rvBadge.setLayoutManager(layoutManager);
-
-                        //set adapter
-                        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
-
-                    }
-
-                });*/
-        displayAllBadges(arrBadges);
-
-        // Set Home selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_badges);
-
         // Perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId())
@@ -107,90 +63,93 @@ public class BadgesActivity extends AppCompatActivity {
             return true;
         });
 
-        /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
-        Button addBtn = findViewById(R.id.idBtnAdd);
-        Button removeBtn = findViewById(R.id.idBtnRmv);
-        lngList = new ArrayList<>();
-
-        // on below line we are adding click listener for our button.
+        addBtn = findViewById(R.id.btnAddBtn);
         addBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
-            startActivity(intent);
-            finish();
-        });
-
-        removeBtn.setOnClickListener(v -> {
-            // on below line we are getting text from edit text
-            /*String badgeName = itemEdt.getText().toString();
-
-            // on below line we are checking if item is not empty
-            if (!badgeName.isEmpty()) {
-                deleteBadge(badgeName);
-                displayAllBadges(arrBadges);
-            }*/
+            ArrayList<UserModel> students;
+            students = adapter.getCheckedUsers();
+            for(int i = 0; i < students.size(); i++){
+                AssignUserToGroup("Senior Design", students.get(i).geteMail());
+            }
 
         });
 
-        //-----------------uncomment(if languageLV will still be used)---------------
-        // the onItemClickListener below makes the remove button obsolete
-       /* languageLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                BadgeItemModel item = adapter.getItem(position);
-                item.deleteBadgeItem(db);
-                lngList.remove(position);
-                adapter.notifyDataSetChanged();
+        // uncomment when we add front end for removing users
+        /*rmvBtn = findViewById(R.id.idBtnRmv);
+        rmvBtn.setOnClickListener(v -> {
+            ArrayList<UserModel> students;
+            students = adapter.getCheckedUsers();
+            for(int i = 0; i < students.size(); i++){
+                DeleteUserFromGroup("Senior Design", students.get(i).geteMail());
             }
         });*/
+
+
+
+
     }
-    private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
-        arrBadges.clear();
-        db.collection("badges")
+
+    private void displayAllUsers(ArrayList<UserModel> arrStudents) {
+        arrStudents.clear();
+        db.collection("users")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-                            arrBadges.add(badge);
+                            UserModel student = document.toObject(UserModel.class);
+                            arrStudents.add(student);
                         }
-                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
-
 
                         //layout manager for badge test
                         GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
 
                         //set layout manager
-                        rvBadge.setLayoutManager(layoutManager);
+                        rvStudent.setLayoutManager(layoutManager);
 
                         //set adapter
-                        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
+                        rvStudent.setAdapter(new StudentViewAdapter(arrStudents));
 
                     }
 
                 });
     }
 
-    private void deleteBadge(String badgeName){
-        db.collection("badges").whereEqualTo("name", badgeName)
+    public void AssignUserToGroup(String groupID, String userId) {
+        // Get the collection reference
+        db = FirebaseFirestore.getInstance();
+
+        CollectionReference UsersRef = db.collection("users");
+
+        // Create a query to search for the document with the unique field value
+        Query query = UsersRef.whereEqualTo("userID", userId);
+
+        // Execute the query asynchronously
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String documentId = document.getId();
+                    String badgeName = document.getString("name");
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("name", badgeName);
+                    docData.put("userID", userId);
+
+                    db.collection("groups").document(groupID).collection("users").document(documentId)
+                            .set(docData);
+                }
+            }
+        });
+    }
+
+    public void DeleteUserFromGroup(String groupID, String userID) {
+        db.collection("groups").document(groupID).collection("users").whereEqualTo("userID", userID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(BadgesActivity.this);
-                            builder.setMessage("You are about to remove this badge.");
-                            builder.setTitle("Notice");
-                            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                            });
-                            builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which) -> {
-                                dialog.cancel();
-                            });
-                            AlertDialog alertDialog = builder.create();
-                            alertDialog.show();
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                db.collection("badges").document(document.getId())
+                                db.collection("groups").document(groupID).collection("users").document(document.getId())
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
@@ -213,9 +172,10 @@ public class BadgesActivity extends AppCompatActivity {
                 });
     }
 
-
-    public void AssignBadge(String userID, String badgeId) {
+    public void AssignBadgeToGroup(String groupID, String badgeId) {
         // Get the collection reference
+
+
         CollectionReference badgesRef = db.collection("badges");
 
         // Create a query to search for the document with the unique field value
@@ -231,16 +191,15 @@ public class BadgesActivity extends AppCompatActivity {
                     docData.put("name", badgeName);
                     docData.put("badgeID", badgeId);
 
-                    db.collection("users").document(userID).collection("badges").document(documentId)
+                    db.collection("groups").document(groupID).collection("badges").document(documentId)
                             .set(docData);
                 }
             }
         });
-
     }
 
-    public void DeleteBadgeFromUser(String userID, String badgeID) {
-        db.collection("users").document(userID).collection("badges").whereEqualTo("badgeID", badgeID)
+    public void DeleteBadgeFromGroup(String groupID, String badgeID) {
+        db.collection("groups").document(groupID).collection("badges").whereEqualTo("badgeID", badgeID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -248,7 +207,7 @@ public class BadgesActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                db.collection("users").document(userID).collection("badges").document(document.getId())
+                                db.collection("groups").document(groupID).collection("badges").document(document.getId())
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override

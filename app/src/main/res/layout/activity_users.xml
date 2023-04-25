@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_339"
-    tools:context=".ManageStudents">
+    tools:context=".BadgesActivity">
 
     <!--on below line we are creating edit text
          for adding a new item to list-->
@@ -22,14 +22,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/backButton"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Back" />
 
             <Button
-                android:id="@+id/btnAddUser"
+                android:id="@+id/btnAddBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
