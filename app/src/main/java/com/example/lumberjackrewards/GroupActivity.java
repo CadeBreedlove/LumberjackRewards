@@ -3,7 +3,6 @@ package com.example.lumberjackrewards;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -24,7 +23,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class GroupActivity extends AppCompatActivity {

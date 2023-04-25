@@ -1,24 +1,11 @@
 package com.example.lumberjackrewards;
-
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.Checkable;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.firestore.auth.User;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.ViewHolder> {
 
@@ -28,6 +15,8 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
         this.arrStudents = arrStudents;
     }
 
+    // get the index of items that have been checked in
+    // activity_users.xml
     public ArrayList<UserModel> getCheckedUsers() {
         ArrayList<UserModel> students = new ArrayList<>();
         for (int i = 0; i < arrStudents.size(); i++) {
@@ -38,6 +27,7 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
         return students;
     }
 
+    // populate the recycler view
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +38,8 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
     }
 
 
+    // dynamically set the names and ids (emails) of
+    // users in the recycler view
     @Override
     public void onBindViewHolder(@NonNull StudentViewAdapter.ViewHolder holder, int position) {
 
@@ -55,6 +47,7 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
         holder.studentViewModelEmail.setText(arrStudents.get(position).geteMail());
     }
 
+    // get total number of items in the recycler view
     @Override
     public int getItemCount() {
         return arrStudents.size();
