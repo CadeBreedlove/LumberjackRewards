@@ -20,7 +20,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_page);
+        setContentView(R.layout.page_settings);
 
         ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
         ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);

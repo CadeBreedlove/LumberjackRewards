@@ -14,9 +14,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class ActivityManage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage);
+        setContentView(R.layout.activity_manage_groups_and_users);
         ImageButton btn = findViewById(R.id.backButton);
-        Button btnManageClasses = findViewById(R.id.btnManageClasses);
+        Button btnManageClasses = findViewById(R.id.btnManageGroups);
         Button btnManageStudents = findViewById(R.id.btnManageStudents);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

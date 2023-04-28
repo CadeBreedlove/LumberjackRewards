@@ -54,7 +54,7 @@
         android:padding="16dp">
         <!-- Manage classes button -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnManageClasses"
+            android:id="@+id/btnManageGroups"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -62,7 +62,7 @@
             android:background="@drawable/round_back_secondary_200"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:text="@string/manage_classes"
+            android:text="@string/manage_groups"
             android:textColor="@color/black"
             android:textAllCaps="false" />
         <!-- Manage students button -->
@@ -75,9 +75,9 @@
             android:background="@drawable/round_back_secondary_200"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:text="@string/manage_students"
-            android:textColor="@color/black"
-            android:textAllCaps="false" />
+            android:text="@string/manage_users"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
     </LinearLayout>
     <!-- navbar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

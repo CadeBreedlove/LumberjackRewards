@@ -9,9 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +25,7 @@ public class EditProfile extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_edit_profile);
+        setContentView(R.layout.activity_edit_user_profile);
 
         Button btnSaveChanges = findViewById(R.id.saveButton);
         ImageButton backBtn = findViewById(R.id.backButton);

@@ -34,10 +34,10 @@ public class ActivityAddBadge extends AppCompatActivity {
         setContentView(R.layout.activity_add_badge);
 
         db = FirebaseFirestore.getInstance();
-        badgeName = findViewById(R.id.badgeName);
-        badgeClassName = findViewById(R.id.className);
-        badgeDescription = findViewById(R.id.badgeDescription);
-        createBadge = findViewById(R.id.createBadge);
+        badgeName = findViewById(R.id.etAddBadgeName);
+        badgeClassName = findViewById(R.id.etAddGroupName);
+        badgeDescription = findViewById(R.id.etAddBadgeDescription);
+        createBadge = findViewById(R.id.btnAddBadgeSubmit);
         returnButton = findViewById(R.id.backButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

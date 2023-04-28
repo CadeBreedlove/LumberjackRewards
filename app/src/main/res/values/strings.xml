@@ -7,7 +7,7 @@
     <string name="title_badges">Badges</string>
     <string name="title_settings">Settings</string>
     <string name="new_screen">New Screen</string>
-    <string name="manage_users">Manage Students and Classes</string>
+    <string name="manage_users_and_groups">Manage Users and Groups</string>
     <string name="remove">Remove Badge</string>
     <string name="add">Add Badge</string>
     <string name="back">BACK</string>
@@ -47,7 +47,7 @@
     <string name="full_name">Full Name</string>
     <string name="add_a_badge">Add a Badge</string>
     <string name="badge_name">Badge Name</string>
-    <string name="class_name">Class Name</string>
+    <string name="group_name">Group Name</string>
     <string name="badge_details">Badge Criteria</string>
     <string name="faq_s">FAQ\'s</string>
     <string name="stem_building">STEM Building</string>
@@ -60,8 +60,8 @@
     <string name="todo">TODO</string>
     <string name="frequently_asked_quesitons">Frequently Asked Quesitons</string>
     <string name="manage">Manage</string>
-    <string name="manage_classes">Manage Classes</string>
-    <string name="manage_students">Manage Students</string>
+    <string name="manage_groups">Manage Groups</string>
+    <string name="manage_users">Manage Users</string>
     <string name="add_a_class">Add a Class</string>
     <string name="add_new_class">Add New Class</string>
 </resources>

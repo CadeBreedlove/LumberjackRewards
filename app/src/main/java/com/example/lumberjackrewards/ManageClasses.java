@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ManageClasses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_classes);
+        setContentView(R.layout.page_groups);
         Button btn = findViewById(R.id.backButton);
         Button btnAddClass = findViewById(R.id.btnAddClass);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

@@ -58,7 +58,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/badgeName"
+            android:id="@+id/etAddBadgeName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:textColor = "@color/black"
@@ -74,23 +74,23 @@
             android:selectAllOnFocus="true"/>
 
         <EditText
-            android:id="@+id/className"
+            android:id="@+id/etAddGroupName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textColor = "@color/black"
-            android:textSize = "18sp"
-            android:visibility="visible"
-            android:background="@drawable/custom_input"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTint="@color/white"
+            android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:text="@string/class_name"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
+            android:selectAllOnFocus="true"
+            android:text="@string/group_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible" />
 
         <EditText
-            android:id="@+id/badgeDescription"
+            android:id="@+id/etAddBadgeDescription"
             android:layout_width="fill_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
             android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/createBadge"
+            android:id="@+id/btnAddBadgeSubmit"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

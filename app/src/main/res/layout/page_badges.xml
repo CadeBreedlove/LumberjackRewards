@@ -22,12 +22,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnManage"
+                android:id="@+id/btnManageUsersAndGroups"
                 android:layout_width="145dp"
                 android:layout_height="120dp"
                 android:layout_weight="1"
                 android:layout_marginStart="4dp"
-                android:text="@string/manage_users" />
+                android:text="@string/manage_users_and_groups" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/idBtnRmv"
+                    android:id="@+id/btnBadgeRemove"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="4dp"
@@ -47,7 +47,7 @@
                     tools:ignore="RelativeOverlap" />
 
                 <Button
-                    android:id="@+id/idBtnAdd"
+                    android:id="@+id/btnBadgeAdd"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="4dp"
@@ -65,7 +65,7 @@
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge2" />
+            tools:listitem="@layout/item_badge" />
     </LinearLayout>
 
     <!--list view to display list of languages-->

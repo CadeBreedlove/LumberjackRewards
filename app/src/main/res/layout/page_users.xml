@@ -41,7 +41,7 @@
             android:id="@+id/rvStudents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_student_view_model" />
+            tools:listitem="@layout/item_user_view_model" />
 
     </LinearLayout>
 

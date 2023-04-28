@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PinnedBadgesAdapter extends RecyclerView.Adapter<PinnedBadgesAdapter.ViewHolder> {
@@ -21,7 +20,7 @@ public class PinnedBadgesAdapter extends RecyclerView.Adapter<PinnedBadgesAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_badge2, parent, false);
+                .inflate(R.layout.item_badge, parent, false);
 
         return new ViewHolder(view);
     }

@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="355dp"
                 tools:itemCount="3"
-                tools:listitem="@layout/item_badge2"
+                tools:listitem="@layout/item_badge"
                 >
 
             </androidx.recyclerview.widget.RecyclerView>
