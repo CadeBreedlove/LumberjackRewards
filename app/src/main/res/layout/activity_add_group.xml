@@ -77,17 +77,17 @@
             android:id="@+id/etAddGroupName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textColor = "@color/black"
-            android:textSize = "18sp"
-            android:visibility="visible"
-            android:background="@drawable/custom_input"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTint="@color/white"
+            android:hint="@string/group_name"
+            android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:hint="@string/class_name"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/etAddBadgeDescription"
