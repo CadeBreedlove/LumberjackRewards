@@ -29,7 +29,7 @@ public class PinnedBadgesAdapter extends RecyclerView.Adapter<PinnedBadgesAdapte
     @Override
     public void onBindViewHolder(@NonNull PinnedBadgesAdapter.ViewHolder holder, int position) {
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
-       // holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
+        holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
     }
 
     @Override
@@ -44,6 +44,7 @@ public class PinnedBadgesAdapter extends RecyclerView.Adapter<PinnedBadgesAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
+            descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
         }
     }
 }

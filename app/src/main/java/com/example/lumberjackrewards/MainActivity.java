@@ -6,10 +6,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Set Home selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-        Log.d("PinnedTest", ""+(pinnedList));
-        if(pinnedList != null){
+
+        //TO be deleted to below --------
+        //Log.d("PinnedTest", ""+(pinnedList));
+        /*if(pinnedList != null){
             RecyclerView pinnedBadgesView = findViewById(R.id.rvPinnedBadges);
 
             //layout manager for badge test
@@ -44,18 +51,24 @@ public class MainActivity extends AppCompatActivity {
 
             //set adapter
             pinnedBadgesView.setAdapter(new PinnedBadgesAdapter(pinnedList)); //BadgeViewAdapter
-        }
+        }*/
+        //delete above here ---------
 
+        //pinned badges
         Intent intent = getIntent();
         ArrayList<BadgeItemModel> pinnedBadges = intent.getSerializableExtra("pinnedBadges", new ArrayList<BadgeItemModel>().getClass());
-        //String mystring = intent.getStringExtra("myString");
-        //Log.d("PinnedTest", "This is my test"  + mystring);
-        Log.d("PinnedBadges" ,String.valueOf( pinnedBadges));
+
+
+        //sets variables needed for empty or filled pinnedBadges view
+        RecyclerView pinnedBadgesView = findViewById(R.id.rvPinnedBadges);
+        LinearLayout emptyPinnedBadgesView = findViewById(R.id.tvNoPinnedBadges);
+
+        float scale = getApplicationContext().getResources().getDisplayMetrics().density;
+        int pinnedBadgesViewPixels = (int)(355 * scale + 0.5f);
+
         if (pinnedBadges != null) {
             pinnedList = pinnedBadges;
-            RecyclerView pinnedBadgesView = findViewById(R.id.rvPinnedBadges);
-            Log.d("SomeTest", "hello jj");
-            pinnedBadges.forEach((i) -> Log.d("Hello12", i.getName()));
+
             //layout manager for badge test
             GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
 
@@ -64,6 +77,26 @@ public class MainActivity extends AppCompatActivity {
 
             //set adapter
             pinnedBadgesView.setAdapter(new BadgeViewAdapter(pinnedBadges));
+
+            //sets emptyPinnedBadges layout parameters
+            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+
+            //sets pinnedBadges layout parameters
+            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
+
+            //changes visibility for placeholder
+            emptyPinnedBadgesView.setVisibility(View.INVISIBLE);
+            pinnedBadgesView.setVisibility(View.VISIBLE);
+
+
+        }else{
+            //sets homepage with empty pinned badges
+            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
+            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+
+            //placeholder visibility change
+            emptyPinnedBadgesView.setVisibility(View.VISIBLE);
+            pinnedBadgesView.setVisibility(View.INVISIBLE);
         }
 
 

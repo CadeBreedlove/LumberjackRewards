@@ -84,7 +84,7 @@ public class BadgesActivity extends AppCompatActivity {
                         }
                         startActivity(intent);
 
-                        //previous startActivity for testing for different branches
+                        //previous startActivity for testing for different branches to revert back
                         //startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
 
