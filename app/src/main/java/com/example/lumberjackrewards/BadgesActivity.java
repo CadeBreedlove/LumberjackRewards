@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -55,35 +56,6 @@ public class BadgesActivity extends AppCompatActivity {
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
-        //testing badge recycle view layout
-        /*for (int i = 0; i < 40; i++){
-            //Add values in array List
-            arrBadges.add(new BadgeItemModel(i, "test", "Example" + i, "badge_ex1"));
-        }*/
-        /*db.collection("badges")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-                            arrBadges.add(badge);
-                        }
-                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
-
-
-                        //layout manager for badge test
-                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
-
-                        //set layout manager
-                        rvBadge.setLayoutManager(layoutManager);
-
-                        //set adapter
-                        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
-
-                    }
-
-                });*/
         displayAllBadges(arrBadges);
 
         // Set Home selected
@@ -94,7 +66,26 @@ public class BadgesActivity extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_home:
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+                    //Sends back to main activity what badges are pinned
+                        ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
+
+                       for(int i = 0; i < arrBadges.size(); i++){
+                          boolean isPinned = arrBadges.get(i).getIsPinned();
+                           if(isPinned) {
+                               pinnedBadges.add(arrBadges.get(i));
+                           }
+                       }
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        if(!pinnedBadges.isEmpty()) {
+                            intent.putExtra("pinnedBadges", pinnedBadges);
+                        }
+                        startActivity(intent);
+
+                        //previous startActivity for testing for different branches to revert back
+                        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+
                     //overridePendingTransition(0,0);
                     return true;
                 case R.id.navigation_badges:
@@ -112,6 +103,16 @@ public class BadgesActivity extends AppCompatActivity {
         Button removeBtn = findViewById(R.id.idBtnRmv);
         Button btnManage = findViewById(R.id.btnManage);
         lngList = new ArrayList<>();
+
+        // on below line we are adding items to our list
+        //lngList.add("C++");
+        //lngList.add("Python");
+
+        // on the below line we are initializing the adapter for our list view.
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lngList);
+
+        // on below line we are setting adapter for our list view.
+       /* languageLV.setAdapter(adapter);*/
 
         // on below line we are adding click listener for our button.
         addBtn.setOnClickListener(v -> {
@@ -277,4 +278,5 @@ public class BadgesActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

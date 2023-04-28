@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
         holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
-        //holder.iconImageView.setImageDrawable(arrItemBadges.get(position).getIcon());
+
     }
 
     @Override
@@ -49,17 +50,21 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView descriptionTextView;
-        //ImageView iconImageView;
+
 
         //badge icon flip animation variable
         private boolean isFrontIcon = true;
         ProgressBar progressBar;
         TextView progressTxt;
+
+        public boolean isPinned = false;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
-            //iconImageView = itemView.findViewById(R.id.imgBadgeIcon);
+
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
 
@@ -112,6 +117,27 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                     }
                 }
             });
+
+            //pinned badge view button
+            View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
+            pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   isPinned = (!isPinned) ? true : false;
+                    Log.d("Pinned Value" , "Pinned is: " + isPinned);
+                    arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
+                }
+            });
+
+
+        }
+
+        public boolean getPinned(){
+            return isPinned;
+        };
+
+        public void setPinned(boolean isPinned){
+            this.isPinned = isPinned;
         }
     }
 }
