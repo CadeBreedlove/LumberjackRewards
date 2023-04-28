@@ -84,6 +84,7 @@ public class BadgesActivity extends AppCompatActivity {
                     }
 
                 });*/
+        // TEST
         displayAllBadges(arrBadges);
 
         // Set Home selected
