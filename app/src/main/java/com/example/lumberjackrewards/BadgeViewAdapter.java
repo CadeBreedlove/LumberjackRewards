@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,13 @@ import android.animation.AnimatorInflater;
 public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.ViewHolder> {
     ArrayList<BadgeItemModel> arrItemBadges;
 
+
+    // constructor
     public BadgeViewAdapter(ArrayList<BadgeItemModel> arrBadges) {
         this.arrItemBadges = arrBadges;
     }
 
+    // fill recycler view with icon from item_badge2.xml
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,13 +36,11 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         return new ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
         holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
-
     }
 
     @Override
@@ -59,15 +61,14 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
         public boolean isPinned = false;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
-
 
             //modifies the camera scale for flip animation
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;

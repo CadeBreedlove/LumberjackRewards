@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActivityBadges extends AppCompatActivity {
-    // Badges backend
+
     private EditText itemEdt;
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
@@ -42,7 +42,7 @@ public class ActivityBadges extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badges);
 
-        // on below line we are accessing Cloud Firestore instance
+        // accessing Cloud Firestore instance
         db = FirebaseFirestore.getInstance();
 
         // Initialize and assign variable
@@ -50,6 +50,7 @@ public class ActivityBadges extends AppCompatActivity {
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
+        // Fills recycler view with every badge in the database
         displayAllBadges(arrBadges);
 
         // Set Home selected
@@ -93,13 +94,7 @@ public class ActivityBadges extends AppCompatActivity {
         Button btnManage = findViewById(R.id.btnManage);
         lngList = new ArrayList<>();
 
-        // initializing the adapter for our list view.
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lngList);
-
-        // on below line we are setting adapter for our list view.
-       /* languageLV.setAdapter(adapter);*/
-
-        // on below line we are adding click listener for our button.
+        // adding click listener for our button.
         addBtn.setOnClickListener(v -> {
             Intent intent = new Intent(ActivityBadges.this, ActivityAddBadge.class);
             startActivity(intent);
@@ -124,6 +119,9 @@ public class ActivityBadges extends AppCompatActivity {
 
         });
     }
+
+    // Query for all badges in the db and
+    // displays them in the recycler view
     private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
         arrBadges.clear();
         db.collection("badges")
