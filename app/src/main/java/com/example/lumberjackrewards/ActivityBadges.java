@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -32,8 +31,8 @@ import java.util.Map;
 public class ActivityBadges extends AppCompatActivity {
 
     private EditText itemEdt;
-    private ArrayList<BadgeItemModel> lngList;
-    private ArrayAdapter<BadgeItemModel> adapter;
+    private ArrayList<BadgeItemModel> badgesToDelete;
+    private BadgeViewAdapter adapter;
     private FirebaseFirestore db;
     private RecyclerView rvBadge;
 
@@ -42,6 +41,7 @@ public class ActivityBadges extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badges);
 
+        adapter = new BadgeViewAdapter();
         // accessing Cloud Firestore instance
         db = FirebaseFirestore.getInstance();
 
@@ -92,7 +92,6 @@ public class ActivityBadges extends AppCompatActivity {
         Button addBtn = findViewById(R.id.idBtnAdd);
         Button removeBtn = findViewById(R.id.idBtnRmv);
         Button btnManage = findViewById(R.id.btnManage);
-        lngList = new ArrayList<>();
 
         // adding click listener for our button.
         addBtn.setOnClickListener(v -> {
@@ -107,17 +106,22 @@ public class ActivityBadges extends AppCompatActivity {
             finish();
         });
 
-        removeBtn.setOnClickListener(v -> {
-            // on below line we are getting text from edit text
-            /*String badgeName = itemEdt.getText().toString();
+        // NOT WORKING: see BadgeViewAdapter.java itemView.setOnClickListener
+        // for more details.
+        // uncomment to activate removeBtn
+        /*removeBtn.setOnClickListener(v -> {
+            if (adapter.badgesToDelete.size() != 0){
+                for(int i = 0; i < adapter.badgesToDelete.size(); i++){
+                    deleteBadge(adapter.badgesToDelete.get(i).getName());
+                }
+            }
 
-            // on below line we are checking if item is not empty
-            if (!badgeName.isEmpty()) {
-                deleteBadge(badgeName);
-                displayAllBadges(arrBadges);
-            }*/
+            displayAllBadges(arrBadges);
 
-        });
+        });*/
+
+
+
     }
 
     // Query for all badges in the db and
