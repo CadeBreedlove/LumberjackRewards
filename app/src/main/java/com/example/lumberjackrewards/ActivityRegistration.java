@@ -19,13 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.firestore.AggregateQuery;
-import com.google.firebase.firestore.AggregateQuerySnapshot;
-import com.google.firebase.firestore.AggregateSource;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class ActivityRegistration extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private EditText RegEmail, RegPwd;
@@ -53,7 +50,7 @@ public class RegistrationActivity extends AppCompatActivity {
         RegQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                Intent intent = new Intent(ActivityRegistration.this, ActivityLogin.class);
                 startActivity(intent);
                 finish();
             }
@@ -99,12 +96,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             if(task.isSuccessful()){
                                 updateUserProfile(fName, lName);
-                                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                                Intent intent = new Intent(ActivityRegistration.this, ActivityLogin.class);
                                 startActivity(intent);
                                 finish();
                             } else{
                                 String error = task.getException().toString();
-                                Toast.makeText(RegistrationActivity.this, "Registration failed: " + error, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ActivityRegistration.this, "Registration failed: " + error, Toast.LENGTH_SHORT).show();
                                 Log.d("REGISTER", "Registration failed: " + error);
                             }
                             //loader.dismiss();

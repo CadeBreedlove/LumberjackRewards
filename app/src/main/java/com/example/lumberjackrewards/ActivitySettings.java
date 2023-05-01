@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Settings extends AppCompatActivity {
+public class ActivitySettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class Settings extends AppCompatActivity {
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.navigation_badges:
-                        startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                         finish();
                         //overridePendingTransition(0,0);
                         break;
@@ -69,7 +69,7 @@ public class Settings extends AppCompatActivity {
             btnEditProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Settings.this, EditProfile.class));
+                    startActivity(new Intent(ActivitySettings.this, EditProfile.class));
                     finish();
                 }
             });
@@ -78,7 +78,7 @@ public class Settings extends AppCompatActivity {
                 public void onClick(View v) {
                     // Set settings selected
                     bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-                    startActivity(new Intent(Settings.this, MainActivity.class));
+                    startActivity(new Intent(ActivitySettings.this, MainActivity.class));
                     finish();
                 }
             });
@@ -87,12 +87,12 @@ public class Settings extends AppCompatActivity {
             logoutBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivitySettings.this);
                     builder.setMessage("You are about to sign out.");
                     builder.setTitle("Notice");
                     builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                         FirebaseAuth.getInstance().signOut();
-                        Intent intent = new Intent(Settings.this, LoginActivity.class);
+                        Intent intent = new Intent(ActivitySettings.this, ActivityLogin.class);
                         startActivity(intent);
                         finish();
                     });
@@ -131,7 +131,7 @@ public class Settings extends AppCompatActivity {
             btnFAQ.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Settings.this, FAQ.class));
+                    startActivity(new Intent(ActivitySettings.this, ActivityFAQ.class));
                     finish();
                 }
             });

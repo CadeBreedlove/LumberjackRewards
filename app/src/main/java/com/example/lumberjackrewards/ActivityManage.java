@@ -24,20 +24,20 @@ public class ActivityManage extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     break;
             }
             return true;
         });
         btn.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+            startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
             finish();
         });
         btnManageClasses.setOnClickListener(view -> {

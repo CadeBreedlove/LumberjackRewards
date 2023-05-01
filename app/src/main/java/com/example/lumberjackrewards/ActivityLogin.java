@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
     private EditText LoginEmail, LoginPwd;
     private Button LoginBtn;
     private TextView LoginQn;
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         LoginQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(ActivityLogin.this, ActivityRegistration.class);
                 startActivity(intent);
             }
         });
@@ -80,12 +80,12 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else{
                                 String error = task.getException().toString();
-                                Toast.makeText(LoginActivity.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ActivityLogin.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

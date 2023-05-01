@@ -9,9 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,7 +45,7 @@ public class EditProfile extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -56,7 +54,7 @@ public class EditProfile extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
                     break;
             }
@@ -66,7 +64,7 @@ public class EditProfile extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditProfile.this, Settings.class));
+                startActivity(new Intent(EditProfile.this, ActivitySettings.class));
                 finish();
             }
         });
@@ -75,7 +73,7 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveChanges(user);
-                startActivity(new Intent(EditProfile.this, Settings.class));
+                startActivity(new Intent(EditProfile.this, ActivitySettings.class));
                 finish();
             }
         });
@@ -117,13 +115,13 @@ public class EditProfile extends AppCompatActivity {
                                 overridePendingTransition(0, 0);
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 overridePendingTransition(0, 0);
-                                startActivity(new Intent(getApplicationContext(), Settings.class));
+                                startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                                 finish();
                             }
                         }
                     });
             // send the newly edited profile changes to settings page
-            Intent i = new Intent(getBaseContext(), Settings.class);
+            Intent i = new Intent(getBaseContext(), ActivitySettings.class);
             i.putExtra("fName", f.getText().toString());
             i.putExtra("lName", l.getText().toString());
             i.putExtra("eMail", e.getText().toString());

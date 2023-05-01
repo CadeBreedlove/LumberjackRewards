@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.ViewHolder> {
+public class UserViewAdapter extends RecyclerView.Adapter<UserViewAdapter.ViewHolder> {
 
     ArrayList<UserModel> arrStudents;
 
-    public StudentViewAdapter(ArrayList<UserModel> arrStudents) {
+    public UserViewAdapter(ArrayList<UserModel> arrStudents) {
         this.arrStudents = arrStudents;
     }
 
@@ -41,7 +41,7 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
     // dynamically set the names and ids (emails) of
     // users in the recycler view
     @Override
-    public void onBindViewHolder(@NonNull StudentViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserViewAdapter.ViewHolder holder, int position) {
 
         holder.studentViewModelName.setText(arrStudents.get(position).getFullName());
         holder.studentViewModelEmail.setText(arrStudents.get(position).geteMail());

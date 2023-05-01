@@ -14,22 +14,22 @@
         tools:targetApi="31">
         <activity android:name=".MainActivity"/>
         <!--<activity android:name=".LoginActivity"/>-->
-        <activity android:name=".RegistrationActivity"/>
-        <activity android:name=".Settings"/>
+        <activity android:name=".ActivityRegistration"/>
+        <activity android:name=".ActivitySettings"/>
         <activity android:name=".Settings_Text_Size" />
         <activity android:name=".Settings_Security_Privacy" />
         <activity android:name=".ActivityAddBadge" />
         <activity android:name=".EditProfile" />
         <activity android:name=".ContactUs" />
-        <activity android:name=".FAQ"/>
+        <activity android:name=".ActivityFAQ"/>
         <activity android:name=".ActivityManage"/>
         <activity android:name=".ManageClasses"/>
         <activity android:name=".ManageStudents"/>
         <activity android:name=".ActivityAddClass"/>
 
-        <activity android:name=".BadgesActivity"/>
+        <activity android:name=".ActivityBadges"/>
         <activity
-            android:name=".LoginActivity"
+            android:name=".ActivityLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
