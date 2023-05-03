@@ -48,7 +48,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Security_Privacy.this, ActivitySettings.class));
+                startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                 finish();
             }
         });

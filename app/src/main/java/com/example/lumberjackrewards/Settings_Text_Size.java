@@ -20,8 +20,6 @@ public class Settings_Text_Size extends AppCompatActivity {
 
 
         ImageButton btn = (ImageButton)findViewById(R.id.backButton);
-        view = (TextView)findViewById(R.id.changeFont);
-        bar = (SeekBar)findViewById(R.id.seekBar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

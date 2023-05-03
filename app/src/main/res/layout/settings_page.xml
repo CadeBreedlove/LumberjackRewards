@@ -62,7 +62,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:isScrollContainer="true">
 
             <!--profile icon, add android:src after layout-->
             <ImageView
@@ -215,7 +216,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/security_icon"
                         android:src="@drawable/privacy_icon"
-                        android:text="@string/privacy_amp_security"
+                        android:text="@string/security_amp_privacy"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
@@ -313,47 +314,11 @@
                         android:background="@null"
                         android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
-
-                <!-- About Us-->
-                <!--
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/about_us_icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_security"
-                        android:padding="12dp"
-                        android:src="@drawable/about_us_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@+id/about_us_icon"
-                        android:text="About Us"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/right_arrow_icon" />
-                </RelativeLayout>
-                !-->
                 <!-- FAQs-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    >
-
+                    android:padding="5dp">
                     <ImageView
                         android:id="@+id/faq_icon"
                         android:layout_width="40dp"
@@ -383,9 +348,7 @@
                         android:background="@null"
                         android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
-
             </LinearLayout>
-
             <!-- Log Out -->
             <LinearLayout
                 android:layout_width="match_parent"

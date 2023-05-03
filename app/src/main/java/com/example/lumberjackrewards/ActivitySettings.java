@@ -15,23 +15,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class ActivitySettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_page);
 
-        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
-        ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
-        Button btnEditProfile = (Button) findViewById(R.id.btnEditProfile);
-        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
-        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
-        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
-        ImageButton btnFAQ = (ImageButton) findViewById(R.id.faqButton);
+        ImageView logoutBtn = findViewById(R.id.logoutButton);
+        ImageButton backBtn = findViewById(R.id.backButton);
+        Button btnEditProfile = findViewById(R.id.btnEditProfile);
+        ImageButton btnTextSize = findViewById(R.id.textSizeButton);
+        ImageButton btnSecurity_Privacy = findViewById(R.id.securityPrivacyButton);
+        ImageButton btnContactUs = findViewById(R.id.contactUsButton);
+        ImageButton btnFAQ = findViewById(R.id.faqButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
 
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
@@ -42,6 +40,7 @@ public class ActivitySettings extends AppCompatActivity {
             if (parameters != null) {
                 updateNameText(parameters.getString("fName").trim() + " " + parameters.getString("lName").trim());
                 updateEmailText(parameters.getString("eMail").trim());
+
             } else {
                 updateEmailText(user.getEmail());
                 updateNameText(user.getDisplayName());
