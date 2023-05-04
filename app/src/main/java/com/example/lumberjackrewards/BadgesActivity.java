@@ -34,7 +34,6 @@ public class BadgesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badges);
-
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();

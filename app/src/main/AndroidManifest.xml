@@ -4,7 +4,9 @@
     package="com.example.lumberjackrewards">
 
     <application
+        android:name = ".NightMode"
         android:allowBackup="true"
+        android:launchMode = "singleInstance"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
