@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Settings_Text_Size"
+    android:background="@color/purple_339">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Settings_Text_Size">
+        <!-- Top Navbar -->
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Top Navigation Bar -->
+            <LinearLayout
+                android:id="@+id/textSizeNavBar"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RelativeLayout
+                    android:layout_width = "match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#401C73"
+                    tools:ignore="UselessParent">
+
+                    <ImageButton
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:src="@drawable/back_btn"
+                        android:id="@+id/backButton"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:textColor = "@color/white"
+                        android:layout_marginStart="-10dp"
+                        />
+
+                    <!-- app:icon="@drawable/back_btn" -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_size"
+                        android:layout_centerInParent = "true"
+                        android:textColor = "@color/white"
+                        android:textStyle= "bold"
+                        android:textSize = "18sp"
+                        android:visibility="visible"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="@string/adjust_your_text_size"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <SeekBar
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:max="10"
+            android:thumbTint="@color/white"
+            android:progress="5"
+            android:scaleX="2"
+            android:scaleY="2" />
+        <TextView
+            android:id="@+id/changeFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="This is preview of font-size"
+            android:layout_marginTop="75dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent" />
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="254dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/changeFont"
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintVertical_bias="0.137" />
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
+</RelativeLayout>

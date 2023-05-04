@@ -5,16 +5,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base"
+    android:background="@color/purple_339"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Home"
-        android:textSize="50sp"
 
-        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/sfa_logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="0" />
+
+                    <TextView
+                        android:id="@+id/welcomeTitleTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:capitalize="none"
+                        android:text="@string/LumberjackRewards"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="34sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/welcomeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/welcomeNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="John."
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+            <!-- NO pinned badges layout -->
+            <LinearLayout
+                android:id="@+id/tvNoPinnedBadges"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#401C73"
+                android:visibility="gone"
+
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="No Pinned Badges"
+                />
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPinnedBadges"
+                android:layout_width="match_parent"
+                android:layout_height="355dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_badge"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="0" />
+
+                    <TextView
+                        android:id="@+id/newsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/NewsAndUpdates"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNewsAndUpdates"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_news_update" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

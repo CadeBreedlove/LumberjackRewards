@@ -1,4 +1,5 @@
 package com.example.lumberjackrewards;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,37 +9,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-public class Settings_Security_Privacy extends AppCompatActivity {
+public class FAQ extends AppCompatActivity {
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_security_privacy);
-
-
-        ImageButton backBtn = (ImageButton)findViewById(R.id.backButton);
+        setContentView(R.layout.activity_faq);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
+        ImageButton backBtn = (ImageButton)findViewById(R.id.backButton);
 
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
         // Perform item selected listener for settings page
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            switch(item.getItemId())
-            {
+            switch (item.getItemId()) {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
                 case R.id.navigation_home:
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
                     finish();
                     break;
             }
@@ -48,7 +44,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Security_Privacy.this, Settings.class));
+                startActivity(new Intent(FAQ.this, Settings.class));
                 finish();
             }
         });

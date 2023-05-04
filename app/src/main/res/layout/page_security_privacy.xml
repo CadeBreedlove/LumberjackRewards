@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings_Text_Size">
+    tools:context=".Settings_Security_Privacy" >
+    <!-- Top Navbar -->
     <LinearLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Settings_Text_Size">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <!-- Top Navigation Bar -->
         <LinearLayout
             android:id="@+id/textSizeNavBar"
@@ -19,25 +20,26 @@
             <RelativeLayout
                 android:layout_width = "match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
-                >
+                android:background="@color/purple_401"
+                tools:ignore="UselessParent">
 
-                <Button
-                    android:id="@+id/backButton"
+                <ImageButton
                     style="@style/Widget.AppCompat.Button.Borderless"
+                    android:src="@drawable/back_btn"
+                    android:id="@+id/backButton"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    android:text="BACK"
                     android:textColor = "@color/white"
                     android:layout_marginStart="-10dp"
                     />
+
                 <!-- app:icon="@drawable/back_btn" -->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "@string/text_size"
+                    android:text="@string/security_amp_privacy"
                     android:layout_centerInParent = "true"
                     android:textColor = "@color/white"
                     android:textStyle= "bold"
@@ -46,28 +48,20 @@
                     />
             </RelativeLayout>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:text="@string/adjust_your_text_size"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <SeekBar
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:max="10"
-            android:thumbTint="@color/purple_700"
-            android:progress="5"
-            android:scaleX="2"
-            android:scaleY="2" />
-
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:background="@color/purple_339">
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:layout_marginTop="70dp"
+            android:layout_height="wrap_content"
+            android:text=""/>
+    </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

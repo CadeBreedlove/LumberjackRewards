@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.lumberjackrewards">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:name = ".NightMode"
@@ -16,8 +15,24 @@
         android:theme="@style/Theme.LumberjackRewards"
 
         tools:targetApi="31">
+        <activity android:name=".MainActivity"/>
+        <!--<activity android:name=".LoginActivity"/>-->
+        <activity android:name=".RegistrationActivity"/>
+        <activity android:name=".Settings"/>
+        <activity android:name=".Settings_Text_Size" />
+        <activity android:name=".Settings_Security_Privacy" />
+        <activity android:name=".ActivityAddBadge" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".FAQ"/>
+        <activity android:name=".ActivityManage"/>
+        <activity android:name=".ManageClasses"/>
+        <activity android:name=".ManageStudents"/>
+        <activity android:name=".ActivityAddClass"/>
+
+        <activity android:name=".BadgesActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BadgesActivity"/>
-        <activity android:name=".Settings"/>
-        <activity android:name=".Settings_Text_Size" />
-        <activity android:name=".Settings_Security_Privacy" />
-        <activity android:name=".ActivityAddBadge" />
+
     </application>
 
 </manifest>

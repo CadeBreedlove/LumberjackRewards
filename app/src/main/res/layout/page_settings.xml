@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Settings">
-
     <!-- Top Navigation Bar -->
     <LinearLayout
         android:layout_width = "match_parent"
@@ -15,7 +14,8 @@
         <RelativeLayout
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/secondary"
+            android:background="@color/purple_401"
+            <--android:background="@color/secondary"-->
             >
 
             <Button
@@ -56,7 +56,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:background="@color/primary"
+    android:background="@color/purple_339"
+    <!--android:background="@color/primary"-->
         android:paddingBottom="70dp">
 
 
@@ -140,7 +141,6 @@
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
-                        android:id = "@+id/mode"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
@@ -172,7 +172,7 @@
                         android:text="@string/title_notifications"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
-                    <!--com.google.android.material.bottomnavigation.BottomNavigationView-->
+
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -287,7 +287,7 @@
                         android:id="@+id/message_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/round_back_about_us"
+                        android:background="@drawable/round_back_private_account"
                         android:padding="12dp"
                         android:contentDescription="@string/contact_us"
                         android:src="@drawable/message_icon" />

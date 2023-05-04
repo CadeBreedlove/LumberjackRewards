@@ -1,28 +1,32 @@
 package com.example.lumberjackrewards;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BadgeItemModel {
-    private int badgeID;
+    private long badgeID;
     private String description;
     private String name;
     private String icon;
 
+    private boolean isPinned;
+
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(int badgeID, String description, String name, String icon) {
+    public BadgeItemModel(long badgeID, String description, String name,String icon) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
+        this.isPinned = false;
     }
 
     // getters and setters
-    public int getBadgeID() {
+    public long getBadgeID() {
         return badgeID;
     }
 
@@ -46,13 +50,13 @@ public class BadgeItemModel {
         this.name = name;
     }
 
-    public String getIcon() {
-        return icon;
-    }
+    public String getIcon() {return icon;}
 
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+    public void setIcon(String icon) {this.icon = icon;}
+
+    public boolean getIsPinned(){return isPinned;}
+
+    public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
 
     @Override
     public String toString() {
