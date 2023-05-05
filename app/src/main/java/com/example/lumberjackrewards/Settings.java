@@ -31,18 +31,10 @@ public class Settings extends AppCompatActivity {
     SharedPreferences prefs;
     SharedPreferences.Editor myEditor;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_settings);
-        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
-        ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
-        Button btnEditProfile = (Button) findViewById(R.id.btnEditProfile);
-        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
-        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
-        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
-        ImageButton btnFAQ = (ImageButton) findViewById(R.id.faqButton);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         a = findViewById(R.id.night);
         prefs = getSharedPreferences(MY_PREFS, MODE_PRIVATE);
         myEditor = getSharedPreferences(MY_PREFS, MODE_PRIVATE).edit();
@@ -69,7 +61,15 @@ public class Settings extends AppCompatActivity {
         });
 
 
+        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
+        ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
+        Button btnEditProfile = (Button) findViewById(R.id.btnEditProfile);
+        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
+        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
+        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
+        ImageButton btnFAQ = (ImageButton) findViewById(R.id.faqButton);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
@@ -90,15 +90,16 @@ public class Settings extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_badges:
                         startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
-                        finish();
+                        //finish();
                         //overridePendingTransition(0,0);
-                        break;
-                    case R.id.navigation_home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        finish();
                         break;
                     case R.id.navigation_settings:
                         break;
+                        case R.id.navigation_home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        //finish();
+                        break;
+
                 }
                 return true;
             });
@@ -114,7 +115,7 @@ public class Settings extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Set settings selected
-                    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+                //    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
                     startActivity(new Intent(Settings.this, MainActivity.class));
                     finish();
                 }
