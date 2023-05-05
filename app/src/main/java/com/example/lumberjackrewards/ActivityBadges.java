@@ -39,7 +39,7 @@ public class ActivityBadges extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_badges);
+        setContentView(R.layout.page_badges);
 
         adapter = new BadgeViewAdapter();
         // accessing Cloud Firestore instance
@@ -89,9 +89,9 @@ public class ActivityBadges extends AppCompatActivity {
             return true;
         });
 
-        Button addBtn = findViewById(R.id.idBtnAdd);
-        Button removeBtn = findViewById(R.id.idBtnRmv);
-        Button btnManage = findViewById(R.id.btnManage);
+        Button addBtn = findViewById(R.id.btnBadgeAdd);
+        Button removeBtn = findViewById(R.id.btnBadgeRemove);
+        Button btnManage = findViewById(R.id.btnManageUsersAndGroups);
 
         // adding click listener for our button.
         addBtn.setOnClickListener(v -> {
