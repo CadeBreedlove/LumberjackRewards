@@ -40,7 +40,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvStudents"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="623dp"
             tools:listitem="@layout/item_student_view_model" />
 
     </LinearLayout>

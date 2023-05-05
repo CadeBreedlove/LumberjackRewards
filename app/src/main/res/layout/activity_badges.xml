@@ -64,8 +64,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge2" />
+            android:layout_height="581dp"
+            tools:listitem="@layout/item_badge" />
     </LinearLayout>
 
     <!--list view to display list of languages-->
