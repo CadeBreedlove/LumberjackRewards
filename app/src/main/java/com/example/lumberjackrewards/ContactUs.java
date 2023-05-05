@@ -42,7 +42,7 @@ public class ContactUs extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -51,7 +51,7 @@ public class ContactUs extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
                     break;
             }
@@ -59,14 +59,14 @@ public class ContactUs extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v -> {
-            startActivity(new Intent(ContactUs.this, Settings.class));
+            startActivity(new Intent(ContactUs.this, ActivitySettings.class));
             finish();
         });
 
         btnSubmit.setOnClickListener(v -> {
             // calls method to submit the contact form
             submitContactForm(user);
-            startActivity((new Intent(getApplicationContext(), Settings.class)));
+            startActivity((new Intent(getApplicationContext(), ActivitySettings.class)));
             finish();
         });
     }

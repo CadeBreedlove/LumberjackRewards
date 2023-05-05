@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +18,19 @@ import android.animation.AnimatorInflater;
 
 public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.ViewHolder> {
     ArrayList<BadgeItemModel> arrItemBadges;
-
+    ArrayList<BadgeItemModel> badgesToDelete;
+    // constructor
     public BadgeViewAdapter(ArrayList<BadgeItemModel> arrBadges) {
+
         this.arrItemBadges = arrBadges;
+        this.badgesToDelete = new ArrayList<>();
     }
 
+    public BadgeViewAdapter() {
+        this.badgesToDelete = new ArrayList<>();
+    }
+
+    // fill recycler view with icon from item_badge2.xml
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,12 +40,12 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         return new ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
         holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
+
 
     }
 
@@ -44,9 +53,11 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
     public int getItemCount() {
         return arrItemBadges.size();
     }
+    public ArrayList<BadgeItemModel> getBadgesToDelete() {
+        return this.badgesToDelete;
+    }
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nameTextView;
         TextView descriptionTextView;
 
@@ -58,15 +69,14 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
         public boolean isPinned = false;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
-
 
             //modifies the camera scale for flip animation
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;
@@ -83,7 +93,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
             // onclick event listener for the container that holds the
             // the badge image and progress circle
-            View containerView = itemView.findViewById(R.id.badge_IconContainer);
+            /*View containerView = itemView.findViewById(R.id.badge_IconContainer);
             containerView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v){
@@ -115,7 +125,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                         isFrontIcon = true;
                     }
                 }
-            });
+            }); */
 
             //pinned badge view button
             View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
@@ -128,9 +138,21 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                 }
             });
 
+            // NOT WORKING
+            // Clicked item in recycler view is being added to badgesToDelete
+            // but when removeBtn is clicked and the recycler view is updated via
+            // displayAllBadges(), its not refreshing
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    badgesToDelete.add(arrItemBadges.get(getAdapterPosition()));
+                    Log.d("added to badgesToDelete" , "badge is " + arrItemBadges.get(getAdapterPosition()));
+
+                }
+            });*/
+
 
         }
-
         public boolean getPinned(){
             return isPinned;
         };

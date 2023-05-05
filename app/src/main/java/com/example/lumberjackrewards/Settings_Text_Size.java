@@ -20,8 +20,6 @@ public class Settings_Text_Size extends AppCompatActivity {
 
 
         ImageButton btn = (ImageButton)findViewById(R.id.backButton);
-        view = (TextView)findViewById(R.id.changeFont);
-        bar = (SeekBar)findViewById(R.id.seekBar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -34,7 +32,7 @@ public class Settings_Text_Size extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -43,7 +41,7 @@ public class Settings_Text_Size extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
             }
             return true;
@@ -69,7 +67,7 @@ public class Settings_Text_Size extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Text_Size.this, Settings.class));
+                startActivity(new Intent(Settings_Text_Size.this, ActivitySettings.class));
                 finish();
             }
         });

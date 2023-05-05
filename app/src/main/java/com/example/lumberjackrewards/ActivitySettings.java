@@ -1,4 +1,5 @@
 package com.example.lumberjackrewards;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,62 +15,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import android.widget.CompoundButton;
-import android.content.SharedPreferences;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
-
-public class Settings extends AppCompatActivity {
-    SwitchCompat a;
-    private static final String IS_DARK = "IS_DARK";
-    private static String MY_PREFS = "switch_prefs";
-    private static String SWITCH_STATUS = "switch_status";
-    boolean switch_status;
-
-
-    SharedPreferences prefs;
-    SharedPreferences.Editor myEditor;
+public class ActivitySettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_settings);
+        setContentView(R.layout.settings_page);
 
-        a = findViewById(R.id.night);
-        prefs = getSharedPreferences(MY_PREFS, MODE_PRIVATE);
-        myEditor = getSharedPreferences(MY_PREFS, MODE_PRIVATE).edit();
-        switch_status = prefs.getBoolean(SWITCH_STATUS, false);
-        a.setChecked(switch_status);
-
-        a.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (buttonView.isChecked()) { // switch gets checked and night mode is off
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); // turns on night mode
-                    myEditor.putBoolean(SWITCH_STATUS, true);
-                    myEditor.putBoolean(IS_DARK, true);
-                    myEditor.apply();
-                    a.setChecked(true);
-                } else { // switch is unchecked, then switch off night mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    myEditor.putBoolean(SWITCH_STATUS, false);
-                    myEditor.putBoolean(IS_DARK, false);
-                    myEditor.apply();
-                    a.setChecked(false);
-                }
-            }
-        });
-
-
-        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
-        ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
-        Button btnEditProfile = (Button) findViewById(R.id.btnEditProfile);
-        ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
-        ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
-        ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
-        ImageButton btnFAQ = (ImageButton) findViewById(R.id.faqButton);
+        ImageView logoutBtn = findViewById(R.id.logoutButton);
+        ImageButton backBtn = findViewById(R.id.backButton);
+        Button btnEditProfile = findViewById(R.id.btnEditProfile);
+        ImageButton btnTextSize = findViewById(R.id.textSizeButton);
+        ImageButton btnSecurity_Privacy = findViewById(R.id.securityPrivacyButton);
+        ImageButton btnContactUs = findViewById(R.id.contactUsButton);
+        ImageButton btnFAQ = findViewById(R.id.faqButton);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
@@ -79,6 +40,7 @@ public class Settings extends AppCompatActivity {
             if (parameters != null) {
                 updateNameText(parameters.getString("fName").trim() + " " + parameters.getString("lName").trim());
                 updateEmailText(parameters.getString("eMail").trim());
+
             } else {
                 updateEmailText(user.getEmail());
                 updateNameText(user.getDisplayName());
@@ -89,17 +51,16 @@ public class Settings extends AppCompatActivity {
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.navigation_badges:
-                        startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
-                        //finish();
+                        startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
+                        finish();
                         //overridePendingTransition(0,0);
+                        break;
+                    case R.id.navigation_home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
                         break;
                     case R.id.navigation_settings:
                         break;
-                        case R.id.navigation_home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        //finish();
-                        break;
-
                 }
                 return true;
             });
@@ -107,7 +68,7 @@ public class Settings extends AppCompatActivity {
             btnEditProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Settings.this, EditProfile.class));
+                    startActivity(new Intent(ActivitySettings.this, EditProfile.class));
                     finish();
                 }
             });
@@ -115,8 +76,8 @@ public class Settings extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Set settings selected
-                //    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-                    startActivity(new Intent(Settings.this, MainActivity.class));
+                    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+                    startActivity(new Intent(ActivitySettings.this, MainActivity.class));
                     finish();
                 }
             });
@@ -125,12 +86,12 @@ public class Settings extends AppCompatActivity {
             logoutBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivitySettings.this);
                     builder.setMessage("You are about to sign out.");
                     builder.setTitle("Notice");
                     builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                         FirebaseAuth.getInstance().signOut();
-                        Intent intent = new Intent(Settings.this, LoginActivity.class);
+                        Intent intent = new Intent(ActivitySettings.this, ActivityLogin.class);
                         startActivity(intent);
                         finish();
                     });
@@ -169,7 +130,7 @@ public class Settings extends AppCompatActivity {
             btnFAQ.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Settings.this, FAQ.class));
+                    startActivity(new Intent(ActivitySettings.this, ActivityFAQ.class));
                     finish();
                 }
             });

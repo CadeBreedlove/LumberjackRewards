@@ -5,8 +5,9 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import java.io.Serializable;
 
-public class BadgeItemModel {
+public class BadgeItemModel implements Serializable{
     private long badgeID;
     private String description;
     private String name;

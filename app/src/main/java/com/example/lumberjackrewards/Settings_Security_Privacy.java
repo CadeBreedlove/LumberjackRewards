@@ -29,7 +29,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -38,7 +38,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
                     break;
             }
@@ -48,7 +48,7 @@ public class Settings_Security_Privacy extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings_Security_Privacy.this, Settings.class));
+                startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                 finish();
             }
         });

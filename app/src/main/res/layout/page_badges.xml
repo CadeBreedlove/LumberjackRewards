@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_339"
-    tools:context=".BadgesActivity">
+    tools:context=".ActivityBadges">
 
     <!--on below line we are creating edit text
          for adding a new item to list-->
@@ -41,8 +41,8 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
-                    android:text="@string/remove"
                     android:layout_marginBottom="0dp"
+                    android:text="@string/remove"
                     android:textAllCaps="false"
                     tools:ignore="RelativeOverlap" />
 

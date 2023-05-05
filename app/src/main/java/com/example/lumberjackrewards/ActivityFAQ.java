@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class FAQ extends AppCompatActivity {
+public class ActivityFAQ extends AppCompatActivity {
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class FAQ extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(), BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -34,7 +34,7 @@ public class FAQ extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
                     break;
             }
@@ -44,7 +44,7 @@ public class FAQ extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FAQ.this, Settings.class));
+                startActivity(new Intent(ActivityFAQ.this, ActivitySettings.class));
                 finish();
             }
         });

@@ -1,71 +1,428 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/myCoordinatorLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Settings_Security_Privacy" >
-    <!-- Top Navbar -->
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <!-- Top Navigation Bar -->
-        <LinearLayout
-            android:id="@+id/textSizeNavBar"
-            android:layout_width = "match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <RelativeLayout
-                android:layout_width = "match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/purple_401"
-                tools:ignore="UselessParent">
-
-                <ImageButton
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:src="@drawable/back_btn"
-                    android:id="@+id/backButton"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:visibility="visible"
-                    android:textColor = "@color/white"
-                    android:layout_marginStart="-10dp"
-                    />
-
-                <!-- app:icon="@drawable/back_btn" -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/security_amp_privacy"
-                    android:layout_centerInParent = "true"
-                    android:textColor = "@color/white"
-                    android:textStyle= "bold"
-                    android:textSize = "18sp"
-                    android:visibility="visible"
-                    />
-            </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
+    tools:context=".Settings_Security_Privacy"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:background="@color/purple_339">
-        <TextView
-            android:layout_width="match_parent"
-            android:textSize="18sp"
-            android:layout_marginTop="70dp"
+        tools:context=".ContactUs" >
+        <!-- Top Navbar -->
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""/>
-    </LinearLayout>
+            android:orientation="horizontal">
+            <!-- Top Navigation Bar -->
+            <LinearLayout
+                android:id="@+id/textSizeNavBar"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
+                <RelativeLayout
+                    android:layout_width = "match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/purple_401"
+                    tools:ignore="UselessParent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"/>
-</RelativeLayout>
+                    <ImageButton
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:src="@drawable/back_btn"
+                        android:id="@+id/backButton"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:textColor = "@color/white"
+                        android:layout_marginStart="-10dp"
+                        android:contentDescription="@string/back_button" />
+
+                    <!-- app:icon="@drawable/back_btn" -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/security_amp_privacy"
+                        android:layout_centerInParent = "true"
+                        android:textColor = "@color/white"
+                        android:textStyle= "bold"
+                        android:textSize = "18sp"
+                        android:visibility="visible"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <ScrollView android:layout_marginTop="45dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:background="@color/purple_339"
+            android:paddingBottom="70dp"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_339"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:isScrollContainer="true"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/personName"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_marginBottom="15dp"
+                    android:backgroundTint="@color/white"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/policy_txt"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/personal_data"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/privacy_text"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+
+                <TableLayout
+                    android:layout_marginStart="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    >
+                    <TableRow>
+                        <TextView
+                            android:padding="5dp"
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="1"
+                            android:text="@string/bullet"/>
+                        <TextView
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="2"
+                            android:layout_width="wrap_content"
+                            android:text="@string/email_address"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:padding="5dp"
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="1"
+                            android:text="@string/bullet"/>
+                        <TextView
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="2"
+                            android:layout_width="wrap_content"
+                            android:text="@string/first_and_last_name"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:padding="5dp"
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="1"
+                            android:text="@string/bullet"/>
+                        <TextView
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="2"
+                            android:layout_width="wrap_content"
+                            android:text="@string/phone_number"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:padding="5dp"
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="1"
+                            android:text="@string/bullet"/>
+                        <TextView
+                            android:textSize = "18sp"
+                            android:textColor="@color/white"
+                            android:layout_column="2"
+                            android:layout_width="wrap_content"
+                            android:text="@string/usage_data"/>
+                    </TableRow>
+                </TableLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textStyle="bold"
+                    android:text="@string/usage_data"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/usage_text"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textStyle="bold"
+                    android:text="@string/retention_of_your_personal_data"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/header"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+                <TextView
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "18sp"
+                android:visibility="visible"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                android:selectAllOnFocus="true"
+                android:textStyle="bold"
+                android:text="@string/privacy_changes"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:backgroundTint="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+                <TextView
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "18sp"
+                android:visibility="visible"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                android:selectAllOnFocus="true"
+                android:text="@string/changes_privacy"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize = "18sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center_horizontal"
+                    android:selectAllOnFocus="true"
+                    android:textStyle="bold"
+                    android:text="@string/lumberjack_rewards"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+                    <TextView
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav_menu"/>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

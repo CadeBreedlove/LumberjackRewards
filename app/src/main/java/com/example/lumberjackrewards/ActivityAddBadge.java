@@ -51,7 +51,7 @@ public class ActivityAddBadge extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_badges:
-                    startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                     finish();
                     //overridePendingTransition(0,0);
                     break;
@@ -60,27 +60,22 @@ public class ActivityAddBadge extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.navigation_settings:
-                    startActivity(new Intent(getApplicationContext(),Settings.class));
+                    startActivity(new Intent(getApplicationContext(), ActivitySettings.class));
                     finish();
             }
             return true;
         });
 
-       /* btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ActivityAddBadge.this, Settings.class));
-            }
-        });*/
-
+        // Return to activity_badge.xml
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                startActivity(new Intent(getApplicationContext(), ActivityBadges.class));
                 finish();
             }
         });
 
+        // Add newly created badge to db and return to activity_badge.xml
         createBadge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +113,7 @@ public class ActivityAddBadge extends AppCompatActivity {
                             // adding badge to database
                             db.collection("badges").document(name.replaceAll("\\s", "")).set(newBadge);
 
-                            Intent intent = new Intent(ActivityAddBadge.this, BadgesActivity.class);
+                            Intent intent = new Intent(ActivityAddBadge.this, ActivityBadges.class);
                             startActivity(intent);
                             finish();
 
