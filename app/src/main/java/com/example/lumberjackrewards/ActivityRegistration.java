@@ -44,6 +44,7 @@ public class ActivityRegistration extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Redirect user to login page if
         // account has already been created
